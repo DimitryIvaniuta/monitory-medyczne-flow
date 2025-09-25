@@ -1,0 +1,152 @@
+@use "abstracts" as *;
+
+.flow4 {
+  --flow4-radius: 20px;
+  --flow4-gap: 24px;
+
+  &.bg-cream { background: $cream; }
+  .section-pt { padding-top: 56px; }
+  .section-pb { padding-bottom: 56px; }
+
+  // ===== HERO =====
+  &__hero {
+    position: relative;
+    overflow: clip;
+
+    .flow4__hero-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    // subtle overlay for legibility (can be removed if hero dark enough)
+    &::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,0) 40%);
+      pointer-events: none;
+    }
+  }
+
+  &__hero-copy {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    padding: clamp(16px, 5vw, 56px) 0;
+    color: #fff;
+    max-width: 780px;
+
+    .eyebrow {
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .5rem;
+      opacity: .95;
+    }
+
+    .flow4__title {
+      @include fluid-type(28px, 48px);
+      font-family: $headings-font-family;
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 0 0 .5rem;
+
+      span { color: $primary; }
+    }
+
+    .lead { color: rgba(255,255,255,.92); margin-bottom: 1rem; }
+    .btn-primary { background: $primary; border-color: $primary; }
+  }
+
+  // ===== FEATURE =====
+  &__feature { margin-top: clamp(32px, 6vw, 72px); }
+
+  &__product {
+    position: relative;
+    max-width: 640px;
+    margin-inline: auto;
+
+    .flow4__product-img {
+      width: 68%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 10px 30px rgba(0,0,0,.15));
+    }
+
+    .flow4__product-img.second {
+      position: absolute;
+      right: 0;
+      bottom: 6%;
+      width: 58%;
+      transform: translateX(8%); // fine-tune to match XD offsets
+    }
+
+    .shadow-ellipse {
+      position: absolute;
+      left: 10%; right: 10%; bottom: -2%;
+      height: 36px;
+      background: radial-gradient(50% 100% at 50% 50%, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(8px);
+    }
+  }
+
+  &__text {
+    max-width: 620px;
+    margin-inline: auto;
+
+    h2 { color: $heading-dark; font-weight: 600; }
+    p  { color: $text-secondary; }
+
+    .flow4__bullets {
+      margin: .75rem 0 1.25rem; padding: 0; list-style: none;
+
+      li {
+        position: relative; padding-left: 28px; margin: .5rem 0; color: $body-dark;
+        &::before {
+          content: ""; position: absolute; left: 0; top: .6em;
+          width: 12px; height: 12px; border-radius: 999px; background: $primary;
+        }
+      }
+    }
+
+    .flow4__cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      .btn-outline-dark { border-color: $heading-dark; color: $heading-dark; }
+      .btn-outline-dark:hover { background: $heading-dark; color: #fff; }
+    }
+  }
+
+  // ===== CARDS =====
+  &__cards {
+    margin-top: clamp(24px, 5vw, 56px);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--flow4-gap);
+
+    @media (min-width: 768px) { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .flow4-card {
+    background: #fff;
+    border-radius: var(--flow4-radius);
+    overflow: hidden;
+    box-shadow: $card-shadow;
+    display: flex; flex-direction: column;
+
+    > img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+    &__body { padding: 18px 20px 22px; }
+    h3 { margin: 0 0 6px; color: $heading-dark; font-weight: 600; }
+    p  { margin: 0; color: $text-secondary; }
+  }
+
+  // ===== Utilities =====
+  .full-bleed-rule {
+    width: 100vw;
+    height: 1px;
+    background: rgba(0,0,0,.12);
+    margin-left: calc(50% - 50vw);
+  }
+}

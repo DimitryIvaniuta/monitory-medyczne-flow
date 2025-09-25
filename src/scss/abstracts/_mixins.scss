@@ -1,0 +1,7 @@
+@mixin respond($min) { @media (min-width: $min) { @content; } }
+
+@mixin fluid-type($minSize, $maxSize, $minViewport: 360px, $maxViewport: 1400px) {
+  font-size: clamp($minSize,
+  calc(#{$minSize} + (#{strip-unit($maxSize - $minSize)} * ((100vw - #{$minViewport}) / #{strip-unit($maxViewport - $minViewport)}))),
+  $maxSize);
+}

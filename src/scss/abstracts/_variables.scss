@@ -1,0 +1,52 @@
+// ===== Colors (from your XD list) =====
+$primary:        #E21E26;
+$heading-dark:   #403F40;
+$body-dark:      #131414;
+$text-secondary: #565656;
+$neutral-900:    #000000;
+$neutral-700:    #333333;
+$neutral-600:    #707070;
+$neutral-400:    #C5C5C5;
+$neutral-300:    #D1D1D1;
+$paper:          #F0ECE4; // also appears with F6F3EB tint
+$paper-alt:      #F6F3EB;
+$white:          #FFFFFF;
+$accent:         #00816C;
+
+// Map to Bootstrap
+$body-color: $body-dark;
+$theme-colors: (
+        "primary": $primary,
+        "dark":    $heading-dark
+);
+
+// Typography fallbacks (replace with real families when you deliver fonts)
+$font-family-sans-serif: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif !default;
+$headings-font-family:   "LG El Headline", $font-family-sans-serif !default;
+$headings-color:         $heading-dark;
+
+// Base sizing (adjust once we read exact Inspect values)
+$font-size-base:   1rem;   // 16px
+$line-height-base: 1.6;
+$headings-font-weight: 600;
+
+// Simple spacing scale close to XD tokens
+$spacer: 1rem; // 16
+$spacers: (
+        0: 0,
+        1: .5rem,     // 8
+        2: .75rem,    // 12
+        3: 1rem,      // 16
+        4: 1.5rem,    // 24
+        5: 2rem,      // 32
+        6: 3rem,      // 48
+        7: 4.5rem     // 72
+);
+
+// Radius/shadow used on cards
+$border-radius:       .5rem;     // 8
+$border-radius-lg:    1.25rem;   // 20
+$card-shadow:         0 20px 60px rgba(0,0,0,.12);
+
+// Helpers
+$cream: $paper;

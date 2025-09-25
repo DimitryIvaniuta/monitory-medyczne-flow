@@ -1,0 +1,15 @@
+{
+  "name": "monitory-medyczne-flow4",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "sass": "sass --load-path=node_modules --load-path=src/scss --no-source-map src/scss/styles.scss public/css/styles.css",
+    "sass:watch": "sass --watch --load-path=node_modules --load-path=src/scss --no-source-map src/scss/styles.scss public/css/styles.css",
+    "build": "npm run sass"
+  },
+  "devDependencies": {
+    "sass": "^1.92.1",
+    "vite": "^7.1.7",
+    "bootstrap": "^5.3.8"
+  }
+}

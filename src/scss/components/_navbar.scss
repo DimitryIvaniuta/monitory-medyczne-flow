@@ -1,0 +1,94 @@
+.mm-navbar {
+  background: #F6F3EB;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+
+  .navbar {
+    padding-top: 30px;
+    padding-bottom: 24px;
+    min-height: 108px;
+    align-items: center;
+  }
+
+  /* Force XD 80px side padding inside the navbar */
+  .container {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+  }
+
+  /* BRAND — override Bootstrap’s img height:40px and prevent shrink */
+  .navbar-brand { flex: 0 0 auto; padding-top: 0; padding-bottom: 0; }
+
+  .navbar-brand img,
+  &__logo {
+    //width: 121px;              /* XD width */
+    height: auto !important;   /* cancel BS’s height:40px */
+    max-height: none !important;
+    display: block;
+    flex: 0 0 auto;            /* never shrink */
+  }
+
+  /* CENTER MENU — one line, exact gaps */
+  &__menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 58px;                 /* XD: Oferta ↔ Katalogi gap */
+    min-width: 0;              /* allow text to ellipsize if ever needed */
+  }
+
+  &__link {
+    position: relative;
+    padding: 0;
+    color: #1A1A1A;
+    font-family: "LG El Headline","LG EI Headline",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-weight: 600;          /* Semibold */
+    font-size: 18px;
+    line-height: 24px;
+    white-space: nowrap;       /* don’t wrap any label */
+
+    .mm-navbar__underline {
+      position: absolute;
+      left: 0;
+      bottom: -39px;           /* XD: text → bar top distance */
+      width: 100%;             /* equals text width */
+      height: 5px;             /* XD thickness */
+      background: #E21E26;
+      border-radius: 999px;
+      opacity: 0;
+      transition: opacity .15s ease-in-out;
+
+      .mm-navbar__link.active & { opacity: 1; }
+      .mm-navbar__link:hover  & { opacity: .7; }
+    }
+  }
+
+  /* RIGHT CLUSTER — fixed sizes, no shrink */
+  &__right { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 21px; margin-left: 48px; }
+
+  &__phone { display: inline-flex; align-items: center; gap: 6px; color: #1A1A1A; white-space: nowrap; }
+  &__phone-text { font-family: "LG El Text","Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; font-weight: 400; font-size: 18px; line-height: 24px; }
+
+  &__lang {
+    flex: 0 0 72px;           /* do not allow flexbox to squeeze it */
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #E21E26;
+    color: #fff;
+    font-family: "LG El Headline","LG EI Headline",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1;
+    border: 0;
+  }
+
+  /* Responsive (Bootstrap lg collapse) */
+  @media (max-width: 991.98px) {
+    .navbar { padding-top: 20px; padding-bottom: 16px; min-height: unset; }
+    .container { padding-left: 16px !important; padding-right: 16px !important; } /* mobile gutters */
+    &__menu { gap: 24px; }
+    &__right { gap: 16px; margin-left: 0; }
+    &__lang { flex-basis: 48px; width: 48px; height: 48px; font-size: 16px; }
+    &__link .mm-navbar__underline { bottom: -24px; height: 4px; }
+  }
+}
