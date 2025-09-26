@@ -1,4 +1,8 @@
 @charset "UTF-8";
+/* Typography (swap to real webfonts when you deliver) */
+/* Bootstrap theming (minimal) */
+/* Spacing helpers */
+/* Logo & pill */
 /*!
  * Bootstrap  v5.3.8 (https://getbootstrap.com/)
  * Copyright 2011-2025 The Bootstrap Authors
@@ -11871,74 +11875,137 @@ img {
 
 .mm-navbar {
   background: #F6F3EB;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
 }
-.mm-navbar .navbar {
+@media (min-width: 1200px) {
+  .mm-navbar .container {
+    padding-left: 80px !important;
+    padding-right: 80px !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .mm-navbar .container {
+    padding-left: 56px !important;
+    padding-right: 56px !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .mm-navbar .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+.mm-navbar {
+  /* Flex row with 3 children */
+}
+.mm-navbar__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-top: 30px;
   padding-bottom: 24px;
   min-height: 108px;
-  align-items: center;
 }
 .mm-navbar {
-  /* Force XD 80px side padding inside the navbar */
+  /* Brand */
 }
-.mm-navbar .container {
-  padding-left: 80px !important;
-  padding-right: 80px !important;
-}
-.mm-navbar {
-  /* BRAND — override Bootstrap’s img height:40px and prevent shrink */
-}
-.mm-navbar .navbar-brand {
+.mm-navbar__brand {
   flex: 0 0 auto;
-  padding-top: 0;
-  padding-bottom: 0;
 }
-.mm-navbar .navbar-brand img, .mm-navbar__logo {
-  height: auto !important; /* cancel BS’s height:40px */
+.mm-navbar__brand img {
+  width: 121px;
+  height: auto !important;
   max-height: none !important;
   display: block;
-  flex: 0 0 auto; /* never shrink */
 }
 .mm-navbar {
-  /* CENTER MENU — one line, exact gaps */
+  /* Menu centered */
 }
 .mm-navbar__menu {
+  flex: 1 1 0;
   display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 58px; /* XD: Oferta ↔ Katalogi gap */
-  min-width: 0; /* allow text to ellipsize if ever needed */
-}
-.mm-navbar__link {
-  position: relative;
+  justify-content: center;
+  gap: 58px;
+  margin: 0;
   padding: 0;
+}
+.mm-navbar__menu li {
+  list-style: none;
+}
+.mm-navbar__menu a.mm-navbar__link {
+  position: relative;
   color: #1A1A1A;
-  font-family: "LG El Headline", "LG EI Headline", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 600; /* Semibold */
+  font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
   font-size: 18px;
   line-height: 24px;
-  white-space: nowrap; /* don’t wrap any label */
+  white-space: nowrap;
+  text-decoration: none;
+  /* underline */
 }
-.mm-navbar__link .mm-navbar__underline {
+.mm-navbar__menu a.mm-navbar__link .mm-navbar__underline {
   position: absolute;
   left: 0;
-  bottom: -39px; /* XD: text → bar top distance */
-  width: 100%; /* equals text width */
-  height: 5px; /* XD thickness */
+  top: calc(100% + 33px);
+  width: 100%;
+  height: 5px;
   background: #E21E26;
   border-radius: 999px;
   opacity: 0;
-  transition: opacity 0.15s ease-in-out;
+  pointer-events: none;
+  transition: opacity 0.15s;
 }
-.mm-navbar__link.active .mm-navbar__link .mm-navbar__underline {
+.mm-navbar__menu a.mm-navbar__link.active .mm-navbar__underline {
   opacity: 1;
 }
-.mm-navbar__link:hover .mm-navbar__link .mm-navbar__underline {
+.mm-navbar__menu a.mm-navbar__link:hover .mm-navbar__underline {
   opacity: 0.7;
 }
 .mm-navbar {
-  /* RIGHT CLUSTER — fixed sizes, no shrink */
+  /* Right cluster */
+}
+.mm-navbar__right {
+  flex: 0 0 auto;
+  gap: 21px;
+}
+.mm-navbar__right .mm-navbar__phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.mm-navbar__right .mm-navbar__phone-text {
+  font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+.mm-navbar__right .mm-navbar__phone-icon {
+  width: 22px;
+  height: 22px;
+}
+.mm-navbar__right__lang, .mm-navbar__right__lang-button {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #E21E26;
+  color: #fff;
+  font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1;
+  border: none;
+}
+.mm-navbar {
+  /* Gray rule */
+}
+.mm-navbar__rule {
+  position: absolute;
+  bottom: 0;
+  left: 0.5px;
+  width: 100%;
+  border-top: 1px solid #D1D1D1;
 }
 .mm-navbar__right {
   flex: 0 0 auto;
@@ -11972,9 +12039,6 @@ img {
   font-size: 20px;
   line-height: 1;
   border: 0;
-}
-.mm-navbar {
-  /* Responsive (Bootstrap lg collapse) */
 }
 @media (max-width: 991.98px) {
   .mm-navbar .navbar {

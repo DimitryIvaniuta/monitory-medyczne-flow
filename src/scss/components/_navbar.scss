@@ -1,68 +1,131 @@
+@use "abstracts" as *;
+
 .mm-navbar {
-  background: #F6F3EB;
-  border-bottom: 1px solid rgba(0,0,0,.08);
+  background: $bg-page;
+  position: relative;
 
-  .navbar {
-    padding-top: 30px;
-    padding-bottom: 24px;
-    min-height: 108px;
-    align-items: center;
-  }
-
-  /* Force XD 80px side padding inside the navbar */
   .container {
-    padding-left: 80px !important;
-    padding-right: 80px !important;
-  }
-
-  /* BRAND — override Bootstrap’s img height:40px and prevent shrink */
-  .navbar-brand { flex: 0 0 auto; padding-top: 0; padding-bottom: 0; }
-
-  .navbar-brand img,
-  &__logo {
-    //width: 121px;              /* XD width */
-    height: auto !important;   /* cancel BS’s height:40px */
-    max-height: none !important;
-    display: block;
-    flex: 0 0 auto;            /* never shrink */
-  }
-
-  /* CENTER MENU — one line, exact gaps */
-  &__menu {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 58px;                 /* XD: Oferta ↔ Katalogi gap */
-    min-width: 0;              /* allow text to ellipsize if ever needed */
-  }
-
-  &__link {
-    position: relative;
-    padding: 0;
-    color: #1A1A1A;
-    font-family: "LG El Headline","LG EI Headline",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-    font-weight: 600;          /* Semibold */
-    font-size: 18px;
-    line-height: 24px;
-    white-space: nowrap;       /* don’t wrap any label */
-
-    .mm-navbar__underline {
-      position: absolute;
-      left: 0;
-      bottom: -39px;           /* XD: text → bar top distance */
-      width: 100%;             /* equals text width */
-      height: 5px;             /* XD thickness */
-      background: #E21E26;
-      border-radius: 999px;
-      opacity: 0;
-      transition: opacity .15s ease-in-out;
-
-      .mm-navbar__link.active & { opacity: 1; }
-      .mm-navbar__link:hover  & { opacity: .7; }
+    @media (min-width: 1200px) {
+      padding-left:  80px !important;
+      padding-right: 80px !important;
+    }
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      padding-left:  56px !important;
+      padding-right: 56px !important;
+    }
+    @media (max-width: 991.98px) {
+      padding-left:  16px !important;
+      padding-right: 16px !important;
     }
   }
 
-  /* RIGHT CLUSTER — fixed sizes, no shrink */
+  /* Flex row with 3 children */
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 24px;
+    min-height: 108px;
+  }
+
+  /* Brand */
+  &__brand {
+    flex: 0 0 auto;
+    img {
+      width: 121px;
+      height: auto !important;
+      max-height: none !important;
+      display: block;
+    }
+  }
+
+  /* Menu centered */
+  &__menu {
+    flex: 1 1 0;           // take remaining space
+    display: flex;
+    justify-content: center;
+    gap: 58px;
+    margin: 0;
+    padding: 0;
+
+    li { list-style: none; }
+
+    a.mm-navbar__link {
+      position: relative;
+      color: $text-900;
+      font-family: $font-head;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      white-space: nowrap;
+      text-decoration: none;
+
+      /* underline */
+      .mm-navbar__underline {
+        position: absolute;
+        left: 0;
+        top: calc(100% + 33px);
+        width: 100%;
+        height: 5px;
+        background: $primary;
+        border-radius: 999px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .15s;
+      }
+      &.active .mm-navbar__underline { opacity: 1; }
+      &:hover .mm-navbar__underline { opacity: .7; }
+    }
+  }
+
+  /* Right cluster */
+  &__right {
+    flex: 0 0 auto;
+    gap: 21px;
+
+    .mm-navbar__phone {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+
+      &-text {
+        font-family: $font-sans;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+      }
+      &-icon {
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    &__lang, &__lang-button {
+      flex: 0 0 48px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: $primary;
+      color: #fff;
+      font-family: $font-head;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 1;
+      border: none;
+    }
+  }
+
+  /* Gray rule */
+  &__rule {
+    position: absolute;
+    bottom: 0;
+    left: 0.5px;
+    width: 100%;
+    border-top: 1px solid #D1D1D1;
+  }
+
   &__right { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 21px; margin-left: 48px; }
 
   &__phone { display: inline-flex; align-items: center; gap: 6px; color: #1A1A1A; white-space: nowrap; }
@@ -82,7 +145,6 @@
     border: 0;
   }
 
-  /* Responsive (Bootstrap lg collapse) */
   @media (max-width: 991.98px) {
     .navbar { padding-top: 20px; padding-bottom: 16px; min-height: unset; }
     .container { padding-left: 16px !important; padding-right: 16px !important; } /* mobile gutters */

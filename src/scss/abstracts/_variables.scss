@@ -50,3 +50,27 @@ $card-shadow:         0 20px 60px rgba(0,0,0,.12);
 
 // Helpers
 $cream: $paper;
+$bg-page: #F6F3EB;
+$text-900: #1A1A1A;
+$primary:  #E21E26;
+
+/* Typography (swap to real webfonts when you deliver) */
+$font-sans: "LG El Text","Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+$font-head: "LG El Headline","LG EI Headline",$font-sans;
+
+/* Bootstrap theming (minimal) */
+$body-bg: $bg-page !default;
+$body-color: $text-900 !default;
+$theme-colors: ("primary": $primary);
+
+/* Spacing helpers */
+$gutter-edge-desktop: 80px;
+$navbar-pt: 30px;
+$navbar-pb: 24px;
+$navbar-h: 108px;
+$menu-gap: 58px;
+$underline-thick: 5px;
+
+/* Logo & pill */
+$logo-w: 121px;
+$pill: 72px;
