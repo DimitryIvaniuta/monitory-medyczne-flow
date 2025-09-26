@@ -31,9 +31,12 @@
   // 3) Logo (left)
   &__brand {
     flex: 0 0 auto;
+    margin-right: clamp(30px, 1.2vw, 60px);
     img {
-      width: 121px;
-      height: 54px;
+      //width: 121px;
+      width: clamp(64px, 10vw, 121px);
+      //height: 54px;
+      height: auto !important;
       display: block;
     }
   }
@@ -42,7 +45,7 @@
   &__menu {
     display: flex;
     align-items: center;
-    gap: 58px;
+    gap: clamp(38px, 12vw, 58px);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -52,9 +55,9 @@
     .mm-navbar__link {
       position: relative;
       font-family: $font-head;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 24px;
+      font-weight: 400;
+      font-size:  clamp(16px, 1.2vw, 18px);
+      line-height: clamp(22px, 1.6vw, 24px);
       color: #1A1A1A;
       text-decoration: none;
       padding: 0;
@@ -81,36 +84,37 @@
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    gap: 72px;              // PL gap from phone text
+    margin-left: clamp(30px, 1.2vw, 60px);
+    gap: clamp(56px, 6vw, 72px);              // PL gap from phone text
 
     .mm-navbar__phone {
       display: flex;
       align-items: center;
-      gap: 6px;             // icon ↔ text
+      gap: clamp(4px, .8vw, 6px);             // icon <-> text
       color: #1A1A1A;
-
+      text-decoration: none;
       &-icon {
-        width: 16px;        // from XD
-        height: 21px;
+        width: clamp(16px, 1.4vw, 16px);        // from XD
+        height: clamp(21px, 1.8vw, 21px);
       }
       &-text {
-        font-family: $font-sans;
+        font-family: $font-head;
         font-weight: 400;
-        font-size: 18px;
-        line-height: 21px;  // from XD
+        font-size:  clamp(16px, 1.1vw, 16px);
+        line-height: clamp(21px, 1.3vw, 21px);
       }
     }
 
     .mm-navbar__lang {
-      width: 42px;          // 42px circle
-      height: 42px;
+      width: clamp(32px, 10vw, 42px);          // 42px circle
+      height: clamp(32px, 10vw, 42px);
       border-radius: 50%;
       background: #E21E26;
       color: #fff;
       font-family: $font-head;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 42px;    // vertical center
+      font-weight: 400;
+      font-size:  clamp(16px, 1.1vw, 16px);
+      line-height: clamp(21px, 1.3vw, 21px);
       border: none;
       flex: 0 0 auto;
     }

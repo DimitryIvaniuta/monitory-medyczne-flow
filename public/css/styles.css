@@ -11907,16 +11907,17 @@ img {
 }
 .mm-navbar__brand {
   flex: 0 0 auto;
+  margin-right: clamp(30px, 1.2vw, 60px);
 }
 .mm-navbar__brand img {
-  width: 121px;
-  height: 54px;
+  width: clamp(64px, 10vw, 121px);
+  height: auto !important;
   display: block;
 }
 .mm-navbar__menu {
   display: flex;
   align-items: center;
-  gap: 58px;
+  gap: clamp(38px, 12vw, 58px);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -11927,9 +11928,9 @@ img {
 .mm-navbar__menu .mm-navbar__link {
   position: relative;
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: 400;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: clamp(22px, 1.6vw, 24px);
   color: #1A1A1A;
   text-decoration: none;
   padding: 0;
@@ -11953,34 +11954,36 @@ img {
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  gap: 72px;
+  margin-left: clamp(30px, 1.2vw, 60px);
+  gap: clamp(56px, 6vw, 72px);
 }
 .mm-navbar__right .mm-navbar__phone {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: clamp(4px, 0.8vw, 6px);
   color: #1A1A1A;
+  text-decoration: none;
 }
 .mm-navbar__right .mm-navbar__phone-icon {
-  width: 16px;
-  height: 21px;
+  width: clamp(16px, 1.4vw, 16px);
+  height: clamp(21px, 1.8vw, 21px);
 }
 .mm-navbar__right .mm-navbar__phone-text {
-  font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 21px;
+  font-size: clamp(16px, 1.1vw, 16px);
+  line-height: clamp(21px, 1.3vw, 21px);
 }
 .mm-navbar__right .mm-navbar__lang {
-  width: 42px;
-  height: 42px;
+  width: clamp(32px, 10vw, 42px);
+  height: clamp(32px, 10vw, 42px);
   border-radius: 50%;
   background: #E21E26;
   color: #fff;
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 42px;
+  font-weight: 400;
+  font-size: clamp(16px, 1.1vw, 16px);
+  line-height: clamp(21px, 1.3vw, 21px);
   border: none;
   flex: 0 0 auto;
 }
