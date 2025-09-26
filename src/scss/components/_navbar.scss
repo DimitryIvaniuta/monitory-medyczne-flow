@@ -1,156 +1,121 @@
 @use "abstracts" as *;
 
 .mm-navbar {
-  background: $bg-page;
   position: relative;
+  background: #F6F3EB;
+  height: 108px;
 
-  .container {
-    @media (min-width: 1200px) {
-      padding-left:  80px !important;
-      padding-right: 80px !important;
-    }
-    @media (min-width: 992px) and (max-width: 1199.98px) {
-      padding-left:  56px !important;
-      padding-right: 56px !important;
-    }
-    @media (max-width: 991.98px) {
-      padding-left:  16px !important;
-      padding-right: 16px !important;
-    }
-  }
-
-  /* Flex row with 3 children */
-  &__nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 30px;
-    padding-bottom: 24px;
-    min-height: 108px;
-  }
-
-  /* Brand */
-  &__brand {
-    flex: 0 0 auto;
-    img {
-      width: 121px;
-      height: auto !important;
-      max-height: none !important;
-      display: block;
-    }
-  }
-
-  /* Menu centered */
-  &__menu {
-    flex: 1 1 0;           // take remaining space
-    display: flex;
-    justify-content: center;
-    gap: 58px;
-    margin: 0;
-    padding: 0;
-
-    li { list-style: none; }
-
-    a.mm-navbar__link {
-      position: relative;
-      color: $text-900;
-      font-family: $font-head;
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 24px;
-      white-space: nowrap;
-      text-decoration: none;
-
-      /* underline */
-      .mm-navbar__underline {
-        position: absolute;
-        left: 0;
-        top: calc(100% + 33px);
-        width: 100%;
-        height: 5px;
-        background: $primary;
-        border-radius: 999px;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity .15s;
-      }
-      &.active .mm-navbar__underline { opacity: 1; }
-      &:hover .mm-navbar__underline { opacity: .7; }
-    }
-  }
-
-  /* Right cluster */
-  &__right {
-    flex: 0 0 auto;
-    gap: 21px;
-
-    .mm-navbar__phone {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-
-      &-text {
-        font-family: $font-sans;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 24px;
-      }
-      &-icon {
-        width: 22px;
-        height: 22px;
-      }
-    }
-
-    &__lang, &__lang-button {
-      flex: 0 0 48px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: $primary;
-      color: #fff;
-      font-family: $font-head;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 1;
-      border: none;
-    }
-  }
-
-  /* Gray rule */
+  // 1) Bottom gray ruler
   &__rule {
     position: absolute;
-    bottom: 0;
+    top: 108px;
     left: 0.5px;
     width: 100%;
     border-top: 1px solid #D1D1D1;
   }
 
-  &__right { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 21px; margin-left: 48px; }
+  // 2) Inner wrap with fixed gutters/margins
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
 
-  &__phone { display: inline-flex; align-items: center; gap: 6px; color: #1A1A1A; white-space: nowrap; }
-  &__phone-text { font-family: "LG El Text","Manrope",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; font-weight: 400; font-size: 18px; line-height: 24px; }
-
-  &__lang {
-    flex: 0 0 72px;           /* do not allow flexbox to squeeze it */
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: #E21E26;
-    color: #fff;
-    font-family: "LG El Headline","LG EI Headline",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 1;
-    border: 0;
+    // gutters: 80px ≥1200px, 56px 992–1199px, 16px below
+    padding-left: 16px;
+    padding-right: 16px;
+    @media (min-width: 992px)  { padding-left: 56px; padding-right: 56px; }
+    @media (min-width: 1200px) { padding-left: 80px; padding-right: 80px; }
   }
 
-  @media (max-width: 991.98px) {
-    .navbar { padding-top: 20px; padding-bottom: 16px; min-height: unset; }
-    .container { padding-left: 16px !important; padding-right: 16px !important; } /* mobile gutters */
-    &__menu { gap: 24px; }
-    &__right { gap: 16px; margin-left: 0; }
-    &__lang { flex-basis: 48px; width: 48px; height: 48px; font-size: 16px; }
-    &__link .mm-navbar__underline { bottom: -24px; height: 4px; }
+  // 3) Logo (left)
+  &__brand {
+    flex: 0 0 auto;
+    img {
+      width: 121px;
+      height: 54px;
+      display: block;
+    }
   }
+
+  // 4) Center menu
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 58px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li { white-space: nowrap; }
+
+    .mm-navbar__link {
+      position: relative;
+      font-family: $font-head;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 24px;
+      color: #1A1A1A;
+      text-decoration: none;
+      padding: 0;
+
+      &:hover,
+      &.active { color: #1A1A1A; }
+
+      // red underline
+      .mm-navbar__underline {
+        position: absolute;
+        top: 62px;          // 108px − 5px
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: #E21E26;
+        opacity: 0;
+      }
+      &.active .mm-navbar__underline { opacity: 1; }
+    }
+  }
+
+  // 5) Right cluster
+  &__right {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    gap: 72px;              // PL gap from phone text
+
+    .mm-navbar__phone {
+      display: flex;
+      align-items: center;
+      gap: 6px;             // icon ↔ text
+      color: #1A1A1A;
+
+      &-icon {
+        width: 16px;        // from XD
+        height: 21px;
+      }
+      &-text {
+        font-family: $font-sans;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;  // from XD
+      }
+    }
+
+    .mm-navbar__lang {
+      width: 42px;          // 42px circle
+      height: 42px;
+      border-radius: 50%;
+      background: #E21E26;
+      color: #fff;
+      font-family: $font-head;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 42px;    // vertical center
+      border: none;
+      flex: 0 0 auto;
+    }
+  }
+
+  // 6) Never wrap
+  * { white-space: nowrap; }
 }

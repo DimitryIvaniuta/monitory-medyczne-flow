@@ -5,43 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Monitory medyczne – Serwis (Flow 4)</title>
 
-    <!-- If you use Adobe/Google fonts, include their <link> here -->
-    <!-- <link rel="stylesheet" href="...AdobeFonts_or_GoogleFonts..."> -->
-
     <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body class="page-serwis">
 <!-- NAVBAR (optional placeholder, remove if you already include one globally) -->
 <header class="mm-navbar">
-    <div class="container">
-        <nav class="mm-navbar__nav d-flex align-items-center">
-            <!-- 1) Brand -->
-            <a class="mm-navbar__brand flex-shrink-0" href="index.html" aria-label="iQrad">
-                <img src="img/flow4/icons/logo.svg" alt="iQrad" class="mm-navbar__logo" />
-            </a>
-
-            <!-- 2) Menu -->
-            <ul class="mm-navbar__menu d-flex list-unstyled m-0">
-                <li><a href="o-nas.html" class="mm-navbar__link">O nas<span class="mm-navbar__underline"></span></a></li>
-                <li><a href="oferta.html" class="mm-navbar__link">Oferta<span class="mm-navbar__underline"></span></a></li>
-                <li><a href="katalog.html" class="mm-navbar__link">Katalogi<span class="mm-navbar__underline"></span></a></li>
-                <li><a href="faq.html" class="mm-navbar__link">Faq<span class="mm-navbar__underline"></span></a></li>
-                <li><a href="serwis.html" class="mm-navbar__link active">Serwis<span class="mm-navbar__underline"></span></a></li>
-                <li><a href="kontakt.html" class="mm-navbar__link">Kontakt<span class="mm-navbar__underline"></span></a></li>
-            </ul>
-
-            <!-- 3) Right cluster -->
-            <div class="mm-navbar__right d-flex flex-shrink-0 align-items-center">
-                <a href="tel:+48660468569" class="mm-navbar__phone d-inline-flex align-items-center text-decoration-none">
-                    <img src="img/flow4/icons/phone.svg" alt="iQrad" class="mm-navbar__phone-icon" />
-                    <span class="mm-navbar__phone-text">+48 660 468 569</span>
-                </a>
-                <button class="mm-navbar__lang" type="button" aria-label="Język: polski">PL</button>
-            </div>
-        </nav>
-    </div>
+    <!-- 1) Gray ruler at bottom -->
     <div class="mm-navbar__rule"></div>
+
+    <!-- 2) Nav container -->
+    <div class="mm-navbar__wrap">
+        <!-- Logo (left) -->
+        <a href="index.html" class="mm-navbar__brand" aria-label="iQrad">
+            <img src="img/flow4/icons/logo.svg" alt="iQrad" />
+        </a>
+
+        <!-- Menu (center) -->
+        <ul class="mm-navbar__menu">
+            <li><a href="o-nas.html" class="mm-navbar__link">O nas<span class="mm-navbar__underline"></span></a></li>
+            <li><a href="oferta.html" class="mm-navbar__link">Oferta<span class="mm-navbar__underline"></span></a></li>
+            <li><a href="katalog.html" class="mm-navbar__link">Katalogi<span class="mm-navbar__underline"></span></a></li>
+            <li><a href="faq.html" class="mm-navbar__link">Faq<span class="mm-navbar__underline"></span></a></li>
+            <li><a href="serwis.html" class="mm-navbar__link active">Serwis<span class="mm-navbar__underline"></span></a></li>
+            <li><a href="kontakt.html" class="mm-navbar__link">Kontakt<span class="mm-navbar__underline"></span></a></li>
+        </ul>
+
+        <!-- Phone + PL (right) -->
+        <div class="mm-navbar__right">
+            <a href="tel:+48660468569" class="mm-navbar__phone">
+                <img src="img/flow4/icons/phone.svg" alt="Phone" class="mm-navbar__phone-icon" />
+                <span class="mm-navbar__phone-text">+48 660 468 569</span>
+            </a>
+            <button class="mm-navbar__lang" aria-label="Język: polski">PL</button>
+        </div>
+    </div>
 </header>
+
 
 
 

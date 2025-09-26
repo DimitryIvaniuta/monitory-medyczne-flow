@@ -11874,200 +11874,118 @@ img {
 }
 
 .mm-navbar {
-  background: #F6F3EB;
   position: relative;
+  background: #F6F3EB;
+  height: 108px;
 }
-@media (min-width: 1200px) {
-  .mm-navbar .container {
-    padding-left: 80px !important;
-    padding-right: 80px !important;
-  }
+.mm-navbar__rule {
+  position: absolute;
+  top: 108px;
+  left: 0.5px;
+  width: 100%;
+  border-top: 1px solid #D1D1D1;
 }
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .mm-navbar .container {
-    padding-left: 56px !important;
-    padding-right: 56px !important;
-  }
-}
-@media (max-width: 991.98px) {
-  .mm-navbar .container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-}
-.mm-navbar {
-  /* Flex row with 3 children */
-}
-.mm-navbar__nav {
+.mm-navbar__wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 30px;
-  padding-bottom: 24px;
-  min-height: 108px;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
 }
-.mm-navbar {
-  /* Brand */
+@media (min-width: 992px) {
+  .mm-navbar__wrap {
+    padding-left: 56px;
+    padding-right: 56px;
+  }
+}
+@media (min-width: 1200px) {
+  .mm-navbar__wrap {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 .mm-navbar__brand {
   flex: 0 0 auto;
 }
 .mm-navbar__brand img {
   width: 121px;
-  height: auto !important;
-  max-height: none !important;
+  height: 54px;
   display: block;
 }
-.mm-navbar {
-  /* Menu centered */
-}
 .mm-navbar__menu {
-  flex: 1 1 0;
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 58px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 .mm-navbar__menu li {
-  list-style: none;
+  white-space: nowrap;
 }
-.mm-navbar__menu a.mm-navbar__link {
+.mm-navbar__menu .mm-navbar__link {
   position: relative;
-  color: #1A1A1A;
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
-  white-space: nowrap;
+  color: #1A1A1A;
   text-decoration: none;
-  /* underline */
+  padding: 0;
 }
-.mm-navbar__menu a.mm-navbar__link .mm-navbar__underline {
+.mm-navbar__menu .mm-navbar__link:hover, .mm-navbar__menu .mm-navbar__link.active {
+  color: #1A1A1A;
+}
+.mm-navbar__menu .mm-navbar__link .mm-navbar__underline {
   position: absolute;
+  top: 62px;
   left: 0;
-  top: calc(100% + 33px);
   width: 100%;
   height: 5px;
   background: #E21E26;
-  border-radius: 999px;
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
 }
-.mm-navbar__menu a.mm-navbar__link.active .mm-navbar__underline {
+.mm-navbar__menu .mm-navbar__link.active .mm-navbar__underline {
   opacity: 1;
 }
-.mm-navbar__menu a.mm-navbar__link:hover .mm-navbar__underline {
-  opacity: 0.7;
-}
-.mm-navbar {
-  /* Right cluster */
-}
 .mm-navbar__right {
+  display: flex;
+  align-items: center;
   flex: 0 0 auto;
-  gap: 21px;
+  gap: 72px;
 }
 .mm-navbar__right .mm-navbar__phone {
   display: flex;
   align-items: center;
   gap: 6px;
-  white-space: nowrap;
+  color: #1A1A1A;
+}
+.mm-navbar__right .mm-navbar__phone-icon {
+  width: 16px;
+  height: 21px;
 }
 .mm-navbar__right .mm-navbar__phone-text {
   font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 21px;
 }
-.mm-navbar__right .mm-navbar__phone-icon {
-  width: 22px;
-  height: 22px;
-}
-.mm-navbar__right__lang, .mm-navbar__right__lang-button {
-  flex: 0 0 48px;
-  width: 48px;
-  height: 48px;
+.mm-navbar__right .mm-navbar__lang {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   background: #E21E26;
   color: #fff;
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 1;
-  border: none;
-}
-.mm-navbar {
-  /* Gray rule */
-}
-.mm-navbar__rule {
-  position: absolute;
-  bottom: 0;
-  left: 0.5px;
-  width: 100%;
-  border-top: 1px solid #D1D1D1;
-}
-.mm-navbar__right {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 21px;
-  margin-left: 48px;
-}
-.mm-navbar__phone {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #1A1A1A;
-  white-space: nowrap;
-}
-.mm-navbar__phone-text {
-  font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 400;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 42px;
+  border: none;
+  flex: 0 0 auto;
 }
-.mm-navbar__lang {
-  flex: 0 0 72px; /* do not allow flexbox to squeeze it */
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: #E21E26;
-  color: #fff;
-  font-family: "LG El Headline", "LG EI Headline", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1;
-  border: 0;
-}
-@media (max-width: 991.98px) {
-  .mm-navbar .navbar {
-    padding-top: 20px;
-    padding-bottom: 16px;
-    min-height: unset;
-  }
-  .mm-navbar .container {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-  .mm-navbar { /* mobile gutters */ }
-  .mm-navbar__menu {
-    gap: 24px;
-  }
-  .mm-navbar__right {
-    gap: 16px;
-    margin-left: 0;
-  }
-  .mm-navbar__lang {
-    flex-basis: 48px;
-    width: 48px;
-    height: 48px;
-    font-size: 16px;
-  }
-  .mm-navbar__link .mm-navbar__underline {
-    bottom: -24px;
-    height: 4px;
-  }
+.mm-navbar * {
+  white-space: nowrap;
 }
 
 .flow4 {
