@@ -43,57 +43,66 @@
 
 
 <!-- ============ MONITOR SECTION ============ -->
-<section id="flow4" class="flow4">
-
-    <!-- 2) Red badge ("LG Monitory Medyczne") -->
-    <div class="flow4__badge">LG Monitory Medyczne</div>
-
-    <!-- 3) Main heading -->
-    <h1 class="flow4__title">Nasz Precyzja, Twoja Wizja</h1>
-
-    <!-- 4) Monitors + shadow wrapper -->
-    <div class="flow4__media-wrapper">
-
-        <!-- 4a) Shadow PNG -->
-        <img
-                src="img/flow4/shadow.png"
-                alt=""
-                class="flow4__shadow" />
-
-        <!-- 5) Dual monitors graphic -->
-        <img
-                src="img/flow4/monitor.png"
-                alt="Monitory medyczne"
-                class="flow4__monitors" />
-
-        <!-- 6) Diagnostic CTA pill (overlaps monitors) -->
-        <div class="flow4__cta-block">
-            <div class="flow4__cta-texts">
-                <div class="flow4__cta-pre">Monitory Diagnostyczne</div>
-                <div class="flow4__cta-main">For Professional Diagnosis</div>
+<section class="flow4 py-5">
+    <div class="container" style="max-width:1920px;">
+        <!-- 2) Badge -->
+        <div class="row mb-4">
+            <div class="col text-center">
+                <span class="flow4__badge">LG Monitory Medyczne</span>
             </div>
-            <img src="img/flow4/icons/right-arrow.svg" alt="" class="flow4__cta-icon" />
         </div>
 
-        <!-- 7) Monitor hotspot + label -->
-        <div class="flow4__hotspot">
-            <div class="flow4__hotspot-circle">
-                <img src="img/flow4/icons/monitor-point.svg" alt="" />
+        <!-- 3 + 6) Title -->
+        <div class="row mb-5">
+            <div class="col text-center">
+                <h2 class="flow4__title">Nasz Precyzja, Twoja Wizja</h2>
             </div>
-            <div class="flow4__hotspot-labels">
-                <div class="flow4__hotspot-title">5MP Diagnostic</div>
-                <div class="flow4__hotspot-sub">21HQ613D</div>
-            </div>
-            <div class="flow4__hotspot-line"></div>
         </div>
 
-        <!-- 8) Carousel dots -->
-        <div class="flow4__dots">
-            <span class="flow4__dot"></span>
-            <span class="flow4__dot active"></span>
-            <span class="flow4__dot"></span>
-        </div>
+        <!-- 4,5,6,7,8) Media area -->
+        <div class="row">
+            <div class="col position-relative">
+                <!-- Shadow at bottom -->
+                <img src="img/flow4/shadow.png"
+                     class="position-absolute start-50 translate-middle-x w-100 flow4__shadow"
+                     style="top: calc(80%);"
 
+                     alt="" />
+
+                <!-- Monitors -->
+                <img src="img/flow4/monitor.png"
+                     class="img-fluid mx-auto d-block flow4__monitors"
+                     alt="Monitory medyczne" />
+
+                <!-- 6) CTA block (overlaps monitors) -->
+                <div class="position-absolute flow4__cta">
+                    <div class="flow4__cta-text">
+                        <div class="flow4__cta-pre">Monitory Diagnostyczne</div>
+                        <div class="flow4__cta-main">For Professional Diagnosis</div>
+                    </div>
+                    <img src="img/flow4/arrow.svg" alt="" class="flow4__cta-icon" />
+                </div>
+
+                <!-- 7) Hotspot -->
+                <div class="position-absolute flow4__hotspot d-flex align-items-center">
+                    <div class="flow4__hotspot-circle">
+                        <img src="img/flow4/monitor-point.svg" alt="" class="img-fluid" />
+                    </div>
+                    <div class="flow4__hotspot-line"></div>
+                    <div class="flow4__hotspot-labels">
+                        <div class="flow4__hotspot-title">5MP Diagnostic</div>
+                        <div class="flow4__hotspot-sub">21HQ613D</div>
+                    </div>
+                </div>
+
+                <!-- 8) Carousel dots -->
+                <div class="position-absolute flow4__dots d-flex flex-column">
+                    <span class="flow4__dot"></span>
+                    <span class="flow4__dot flow4__dot--active"></span>
+                    <span class="flow4__dot"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 

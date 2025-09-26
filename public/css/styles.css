@@ -11993,12 +11993,6 @@ img {
 
 .flow4 {
   background: #F0ECE4;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
-}
-.flow4 .container {
-  max-width: 1920px;
-  margin: 0 auto;
 }
 .flow4__badge {
   display: inline-block;
@@ -12010,8 +12004,6 @@ img {
   line-height: clamp(28px, 2vw, 44px);
   padding: 0 clamp(24px, 4vw, 32px);
   border-radius: 28px;
-  margin: 0 auto;
-  text-align: center;
 }
 .flow4__title {
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -12019,35 +12011,34 @@ img {
   font-size: clamp(32px, 4vw, 72px);
   line-height: clamp(40px, 4.5vw, 80px);
   color: #131414;
-  text-align: center;
-  margin: clamp(1rem, 2vw, 2rem) auto 0;
+  margin: 0;
 }
 .flow4__media-wrapper {
   position: relative;
-  overflow-x: auto;
-  padding-top: clamp(2rem, 5vw, 4rem);
 }
-.flow4__media-wrapper .flow4__shadow {
+.flow4__media-wrapper__shadow {
+  object-fit: cover;
+  z-index: 1;
   position: absolute;
-  bottom: 0;
+  bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  height: clamp(150px, 15vh, 209px);
-  object-fit: cover;
+  width: clamp(300px, 45vw, 824px);
+  height: clamp(80px, 8vh, 120px);
   pointer-events: none;
 }
-.flow4__media-wrapper .flow4__monitors {
+.flow4__monitors {
+  position: relative;
   display: block;
-  max-width: clamp(300px, 45vw, 824px);
-  width: 100%;
   height: auto;
   margin: 0 auto;
+  width: clamp(300px, 45vw, 824px);
+  z-index: 2;
 }
-.flow4__media-wrapper .flow4__cta-block {
-  position: absolute;
-  top: clamp(400px, 50vh, 769px);
-  left: clamp(80px, 10vw, 80px);
+.flow4__cta {
+  top: clamp(600px, 50vh, 660px);
+  left: clamp(80px, 8vw, 80px);
+  transform: translateY(-50%);
   background: #fff;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
   border-radius: 106px;
@@ -12057,38 +12048,33 @@ img {
   width: clamp(280px, 50vw, 612px);
   height: clamp(80px, 8vw, 114px);
 }
-.flow4__media-wrapper .flow4__cta-block .flow4__cta-pre {
+.flow4__cta .flow4__cta-pre {
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 600;
   font-size: clamp(16px, 1.2vw, 18px);
   line-height: clamp(22px, 1.4vw, 24px);
-  color: #131414;
 }
-.flow4__media-wrapper .flow4__cta-block .flow4__cta-main {
+.flow4__cta .flow4__cta-main {
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 600;
   font-size: clamp(24px, 2.5vw, 32px);
   line-height: clamp(32px, 3vw, 43px);
-  color: #131414;
   margin-top: 0.25rem;
 }
-.flow4__media-wrapper .flow4__cta-block .flow4__cta-texts {
-  flex: 1 1 auto;
+.flow4__cta .flow4__cta-text {
+  flex: 1;
 }
-.flow4__media-wrapper .flow4__cta-block .flow4__cta-icon {
+.flow4__cta .flow4__cta-icon {
   flex: 0 0 auto;
   width: clamp(36px, 4vw, 48px);
   height: clamp(36px, 4vw, 48px);
   margin-left: clamp(1rem, 3vw, 2rem);
 }
-.flow4__media-wrapper .flow4__hotspot {
-  position: absolute;
-  top: clamp(450px, 50vh, 524px);
+.flow4__hotspot {
+  top: clamp(400px, 50vh, 416px);
   left: clamp(900px, 55vw, 1256px);
-  display: flex;
-  align-items: center;
 }
-.flow4__media-wrapper .flow4__hotspot-circle {
+.flow4__hotspot-circle {
   flex: 0 0 auto;
   width: clamp(32px, 4vw, 48px);
   height: clamp(32px, 4vw, 48px);
@@ -12098,51 +12084,40 @@ img {
   align-items: center;
   justify-content: center;
 }
-.flow4__media-wrapper .flow4__hotspot-circle img {
-  width: 60%;
-  height: auto;
-}
-.flow4__media-wrapper .flow4__hotspot-line {
+.flow4__hotspot-line {
   flex: 0 0 auto;
   width: clamp(80px, 10vw, 135px);
   height: 0;
   border-top: 2px solid #000;
   margin: 0 clamp(0.5rem, 1vw, 1rem);
 }
-.flow4__media-wrapper .flow4__hotspot-labels {
-  display: flex;
-  flex-direction: column;
-}
-.flow4__media-wrapper .flow4__hotspot-labels .flow4__hotspot-title {
+.flow4__hotspot-labels .flow4__hotspot-title,
+.flow4__hotspot-labels .flow4__hotspot-sub {
   font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: clamp(24px, 2vw, 32px);
+  color: #000;
+}
+.flow4__hotspot-labels .flow4__hotspot-title {
   font-weight: 700;
-  font-size: clamp(16px, 1.5vw, 24px);
-  line-height: clamp(24px, 2vw, 32px);
-  color: #000;
 }
-.flow4__media-wrapper .flow4__hotspot-labels .flow4__hotspot-sub {
-  font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+.flow4__hotspot-labels .flow4__hotspot-sub {
   font-weight: 400;
-  font-size: clamp(16px, 1.5vw, 24px);
-  line-height: clamp(24px, 2vw, 32px);
-  color: #000;
 }
-.flow4__media-wrapper .flow4__dots {
-  position: absolute;
-  top: clamp(580px, 60vh, 576px);
+.flow4__dots {
+  top: clamp(550px, 60vh, 468px);
   right: clamp(100px, 10vw, 100px);
-  display: flex;
   flex-direction: column;
   gap: clamp(16px, 2vw, 24px);
 }
-.flow4__media-wrapper .flow4__dots .flow4__dot {
+.flow4__dots .flow4__dot {
   width: clamp(8px, 1vw, 16px);
   height: clamp(8px, 1vw, 16px);
   border-radius: 50%;
   background: #fff;
   border: 2px solid #C5C5C5;
 }
-.flow4__media-wrapper .flow4__dots .flow4__dot.active {
+.flow4__dots .flow4__dot--active {
   background: #E21E26;
   border-color: #E21E26;
 }
