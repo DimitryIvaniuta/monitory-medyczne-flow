@@ -11992,184 +11992,157 @@ img {
 }
 
 .flow4 {
-  --flow4-radius: 20px;
-  --flow4-gap: 24px;
-}
-.flow4.bg-cream {
   background: #F0ECE4;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
-.flow4 .section-pt {
-  padding-top: 56px;
+.flow4 .container {
+  max-width: 1920px;
+  margin: 0 auto;
 }
-.flow4 .section-pb {
-  padding-bottom: 56px;
+.flow4__badge {
+  display: inline-block;
+  background: #E21E26;
+  color: #fff;
+  font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: clamp(28px, 2vw, 44px);
+  padding: 0 clamp(24px, 4vw, 32px);
+  border-radius: 28px;
+  margin: 0 auto;
+  text-align: center;
 }
-.flow4__hero {
+.flow4__title {
+  font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 72px);
+  line-height: clamp(40px, 4.5vw, 80px);
+  color: #131414;
+  text-align: center;
+  margin: clamp(1rem, 2vw, 2rem) auto 0;
+}
+.flow4__media-wrapper {
   position: relative;
-  overflow: clip;
+  overflow-x: auto;
+  padding-top: clamp(2rem, 5vw, 4rem);
 }
-.flow4__hero .flow4__hero-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-.flow4__hero::after {
-  content: "";
+.flow4__media-wrapper .flow4__shadow {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 40%);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: clamp(150px, 15vh, 209px);
+  object-fit: cover;
   pointer-events: none;
 }
-.flow4__hero-copy {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: center;
-  padding: clamp(16px, 5vw, 56px) 0;
-  color: #fff;
-  max-width: 780px;
-}
-.flow4__hero-copy .eyebrow {
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  opacity: 0.95;
-}
-.flow4__hero-copy .flow4__title {
-  font-size: clamp(28px, 28px + strip-unit(20px) * (100vw - 360px) / strip-unit(1040px), 48px);
-  font-family: "LG El Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 600;
-  line-height: 1.15;
-  margin: 0 0 0.5rem;
-}
-.flow4__hero-copy .flow4__title span {
-  color: #E21E26;
-}
-.flow4__hero-copy .lead {
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 1rem;
-}
-.flow4__hero-copy .btn-primary {
-  background: #E21E26;
-  border-color: #E21E26;
-}
-.flow4__feature {
-  margin-top: clamp(32px, 6vw, 72px);
-}
-.flow4__product {
-  position: relative;
-  max-width: 640px;
-  margin-inline: auto;
-}
-.flow4__product .flow4__product-img {
-  width: 68%;
-  height: auto;
+.flow4__media-wrapper .flow4__monitors {
   display: block;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+  max-width: clamp(300px, 45vw, 824px);
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
-.flow4__product .flow4__product-img.second {
+.flow4__media-wrapper .flow4__cta-block {
   position: absolute;
-  right: 0;
-  bottom: 6%;
-  width: 58%;
-  transform: translateX(8%);
+  top: clamp(400px, 50vh, 769px);
+  left: clamp(80px, 10vw, 80px);
+  background: #fff;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 106px;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(1rem, 3vw, 1.5rem);
+  width: clamp(280px, 50vw, 612px);
+  height: clamp(80px, 8vw, 114px);
 }
-.flow4__product .shadow-ellipse {
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: -2%;
-  height: 36px;
-  background: radial-gradient(50% 100% at 50% 50%, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
-  filter: blur(8px);
-}
-.flow4__text {
-  max-width: 620px;
-  margin-inline: auto;
-}
-.flow4__text h2 {
-  color: #403F40;
+.flow4__media-wrapper .flow4__cta-block .flow4__cta-pre {
+  font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 600;
-}
-.flow4__text p {
-  color: #565656;
-}
-.flow4__text .flow4__bullets {
-  margin: 0.75rem 0 1.25rem;
-  padding: 0;
-  list-style: none;
-}
-.flow4__text .flow4__bullets li {
-  position: relative;
-  padding-left: 28px;
-  margin: 0.5rem 0;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: clamp(22px, 1.4vw, 24px);
   color: #131414;
 }
-.flow4__text .flow4__bullets li::before {
-  content: "";
+.flow4__media-wrapper .flow4__cta-block .flow4__cta-main {
+  font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: clamp(32px, 3vw, 43px);
+  color: #131414;
+  margin-top: 0.25rem;
+}
+.flow4__media-wrapper .flow4__cta-block .flow4__cta-texts {
+  flex: 1 1 auto;
+}
+.flow4__media-wrapper .flow4__cta-block .flow4__cta-icon {
+  flex: 0 0 auto;
+  width: clamp(36px, 4vw, 48px);
+  height: clamp(36px, 4vw, 48px);
+  margin-left: clamp(1rem, 3vw, 2rem);
+}
+.flow4__media-wrapper .flow4__hotspot {
   position: absolute;
-  left: 0;
-  top: 0.6em;
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: #E21E26;
-}
-.flow4__text .flow4__cta {
+  top: clamp(450px, 50vh, 524px);
+  left: clamp(900px, 55vw, 1256px);
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  align-items: center;
 }
-.flow4__text .flow4__cta .btn-outline-dark {
-  border-color: #403F40;
-  color: #403F40;
-}
-.flow4__text .flow4__cta .btn-outline-dark:hover {
-  background: #403F40;
-  color: #fff;
-}
-.flow4__cards {
-  margin-top: clamp(24px, 5vw, 56px);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--flow4-gap);
-}
-@media (min-width: 768px) {
-  .flow4__cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.flow4 .flow4-card {
+.flow4__media-wrapper .flow4__hotspot-circle {
+  flex: 0 0 auto;
+  width: clamp(32px, 4vw, 48px);
+  height: clamp(32px, 4vw, 48px);
   background: #fff;
-  border-radius: var(--flow4-radius);
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flow4__media-wrapper .flow4__hotspot-circle img {
+  width: 60%;
+  height: auto;
+}
+.flow4__media-wrapper .flow4__hotspot-line {
+  flex: 0 0 auto;
+  width: clamp(80px, 10vw, 135px);
+  height: 0;
+  border-top: 2px solid #000;
+  margin: 0 clamp(0.5rem, 1vw, 1rem);
+}
+.flow4__media-wrapper .flow4__hotspot-labels {
   display: flex;
   flex-direction: column;
 }
-.flow4 .flow4-card > img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+.flow4__media-wrapper .flow4__hotspot-labels .flow4__hotspot-title {
+  font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: clamp(24px, 2vw, 32px);
+  color: #000;
 }
-.flow4 .flow4-card__body {
-  padding: 18px 20px 22px;
+.flow4__media-wrapper .flow4__hotspot-labels .flow4__hotspot-sub {
+  font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: clamp(24px, 2vw, 32px);
+  color: #000;
 }
-.flow4 .flow4-card h3 {
-  margin: 0 0 6px;
-  color: #403F40;
-  font-weight: 600;
+.flow4__media-wrapper .flow4__dots {
+  position: absolute;
+  top: clamp(580px, 60vh, 576px);
+  right: clamp(100px, 10vw, 100px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
 }
-.flow4 .flow4-card p {
-  margin: 0;
-  color: #565656;
+.flow4__media-wrapper .flow4__dots .flow4__dot {
+  width: clamp(8px, 1vw, 16px);
+  height: clamp(8px, 1vw, 16px);
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #C5C5C5;
 }
-.flow4 .full-bleed-rule {
-  width: 100vw;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.12);
-  margin-left: calc(50% - 50vw);
+.flow4__media-wrapper .flow4__dots .flow4__dot.active {
+  background: #E21E26;
+  border-color: #E21E26;
 }
