@@ -1,7 +1,8 @@
 @use "abstracts" as *;
 
 .flow4 {
-  background: #F0ECE4; // XD page bg
+  background: $cream;
+  //background: #fff;
 
   // 2) Badge
   &__badge {
@@ -10,131 +11,139 @@
     color: #fff;
     font-family: $font-head;
     font-weight: 600;
-    font-size: clamp(16px, 1.5vw, 20px);
-    line-height: clamp(28px, 2vw, 44px);
+    font-size: clamp(16px,1.5vw,20px);
+    line-height: clamp(28px,2vw,44px);
     padding: 0 clamp(24px,4vw,32px);
     border-radius: 28px;
   }
-
   // 3 + 6) Title
   &__title {
     font-family: $font-head;
     font-weight: 600;
-    font-size: clamp(32px, 4vw, 72px);
-    line-height: clamp(40px, 4.5vw, 80px);
+    font-size: clamp(32px,4vw,72px);
+    line-height: clamp(40px,4.5vw,80px);
     color: #131414;
     margin: 0;
   }
 
-  // 4) Shadow
-  &__media-wrapper {
+  &__monitors-wrapper {
     position: relative;
-
-    &__shadow {
-      object-fit: cover;
-      z-index: 1;
-
-      position: absolute;
-      //bottom: 0;
-      bottom:  -50px;
-      left: 50%;
-      //transform: translateX(-50%);
-
-      transform: translateX(-50%) ;
-      width: clamp(300px, 45vw, 824px);
-      height: clamp(80px, 8vh, 120px);
-      pointer-events: none;
-    }
+    width: clamp(300px,45vw,824px);
   }
-  // 5) Monitors
+
   &__monitors {
     position: relative;
-    display: block;
-    //width: 100%;
-    height: auto;
-    margin: 0 auto;
-    //max-width: clamp(300px, 45vw, 824px);
-    width: clamp(300px, 45vw, 824px);
     z-index: 2;
   }
 
-  // 6) CTA block
+  &__shadow {
+    position: absolute;
+    //bottom: -5%;
+    //bottom: 0;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 100vw !important;
+    //height: clamp(40px, 15vh, 220px);
+    top: 80% !important;
+    height: auto !important;
+    min-height: clamp(70px, 12vw, 150px);
+    max-height: 200px;
+    z-index: 1;
+  }
+
   &__cta {
-    top: clamp(600px, 50vh, 660px);
-    left: clamp(80px, 8vw, 80px);
+    position: relative;
+    top: 57%;
+    left: -30%;
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
     background: #fff;
     box-shadow: 0 5px 8px rgba(0,0,0,0.05);
     border-radius: 106px;
-    display: flex;
-    align-items: center;
     padding: 0 clamp(1rem,3vw,1.5rem);
-    width: clamp(280px,50vw,612px);
-    height: clamp(80px, 8vw, 114px);
+    //width: clamp(150px,22vw,412px);
+    //height: clamp(40px,7vw,90px);
+    height: auto !important;
+    min-height: clamp(70px, 12vw, 90px);
+    max-height: 90px;
+    width: auto !important;
+    z-index: 3;
 
     .flow4__cta-pre {
       font-family: $font-head;
-      font-weight: 600;
-      font-size: clamp(16px,1.2vw,18px);
-      line-height: clamp(22px,1.4vw,24px);
+      font-weight: 400;
+      font-size: clamp(9px,1.2vw,18px);
+      line-height: clamp(11px,1.4vw,20px);
     }
     .flow4__cta-main {
       font-family: $font-head;
-      font-weight: 600;
-      font-size: clamp(24px,2.5vw,32px);
-      line-height: clamp(32px,3vw,43px);
+      font-weight: 400;
+      font-size: clamp(9px,2vw,22px);
+      line-height: clamp(14px,3vw,22px);
       margin-top: .25rem;
+      text-wrap: nowrap;
     }
-    .flow4__cta-text { flex: 1; }
     .flow4__cta-icon {
-      flex: 0 0 auto;
-      width: clamp(36px,4vw,48px);
-      height: clamp(36px,4vw,48px);
-      margin-left: clamp(1rem,3vw,2rem);
+      position: absolute;
+      width: clamp(26px,4vw,48px);
+      height: clamp(26px,4vw,48px);
+      right: 3%;
     }
   }
 
-  // 7) Hotspot
   &__hotspot {
-    top: clamp(400px, 50vh, 416px);
-    left: clamp(900px,55vw,1256px);
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 
-    &-circle {
+    .flow4__hotspot-circle {
       flex: 0 0 auto;
       width: clamp(32px,4vw,48px);
       height: clamp(32px,4vw,48px);
       background: #fff;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    &-line {
-      flex: 0 0 auto;
+
+    .flow4__hotspot-line {
+      position: absolute;
+      top: clamp(22px,3vh,25px);
+      left: clamp(22px,3vw,25px);
       width: clamp(80px,10vw,135px);
-      height: 0;
       border-top: 2px solid #000;
-      margin: 0 clamp(.5rem,1vw,1rem);
     }
-    &-labels {
-      .flow4__hotspot-title,
-      .flow4__hotspot-sub {
+
+    .flow4__hotspot-labels {
+      margin-left: clamp(110px,12vw,150px);
+      display: flex;
+      flex-direction: column;
+
+      .flow4__hotspot-title {
         font-family: $font-sans;
+        font-weight: 700;
         font-size: clamp(16px,1.5vw,24px);
         line-height: clamp(24px,2vw,32px);
-        color: #000;
       }
-      .flow4__hotspot-title { font-weight: 700; }
-      .flow4__hotspot-sub   { font-weight: 400; }
+      .flow4__hotspot-sub {
+        font-family: $font-sans;
+        font-weight: 400;
+        font-size: clamp(16px,1.5vw,24px);
+        line-height: clamp(24px,2vw,32px);
+      }
     }
   }
 
-  // 8) Dots
   &__dots {
-    top: clamp(550px, 60vh, 468px);
-    right: clamp(100px,10vw,100px);
+    position: absolute;
+    top: 40%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    display: flex;
     flex-direction: column;
     gap: clamp(16px,2vw,24px);
+    z-index: 3;
 
     .flow4__dot {
       width: clamp(8px,1vw,16px);
@@ -142,6 +151,7 @@
       border-radius: 50%;
       background: #fff;
       border: 2px solid #C5C5C5;
+
       &--active {
         background: $primary;
         border-color: $primary;
