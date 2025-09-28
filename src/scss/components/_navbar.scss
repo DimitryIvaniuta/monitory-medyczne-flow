@@ -9,19 +9,15 @@
   &__rule {
     position: absolute;
     top: 108px;
-    left: 0.5px;
+    left: 0;
     width: 100%;
     border-top: 1px solid #D1D1D1;
+    z-index: 10;
   }
 
   // 2) Inner wrap with fixed gutters/margins
   &__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-
-    // gutters: 80px ≥1200px, 56px 992–1199px, 16px below
+    // use Bootstrap’s padding + our gutters
     padding-left: 16px;
     padding-right: 16px;
     @media (min-width: 992px)  { padding-left: 56px; padding-right: 56px; }
@@ -31,44 +27,36 @@
   // 3) Logo (left)
   &__brand {
     flex: 0 0 auto;
-    margin-right: clamp(30px, 1.2vw, 60px);
+    margin-right: clamp(30px,1.2vw,60px);
+
     img {
-      //width: 121px;
-      width: clamp(64px, 10vw, 121px);
-      //height: 54px;
+      width: clamp(64px,10vw,121px);
       height: auto !important;
-      display: block;
     }
   }
 
   // 4) Center menu
   &__menu {
     display: flex;
-    align-items: center;
-    gap: clamp(38px, 12vw, 58px);
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    gap: clamp(38px,12vw,58px);
 
-    li { white-space: nowrap; }
-
-    .mm-navbar__link {
+    .nav-link {
       position: relative;
       font-family: $font-head;
       font-weight: 400;
-      font-size:  clamp(16px, 1.2vw, 18px);
-      line-height: clamp(22px, 1.6vw, 24px);
-      color: #1A1A1A;
-      text-decoration: none;
-      padding: 0;
+      font-size: clamp(16px,1.2vw,18px);
+      line-height: clamp(22px,1.6vw,24px);
+      color: $text-900;
+      text-wrap: nowrap;
 
-      &:hover,
-      &.active { color: #1A1A1A; }
+      &.active,
+      &:hover {
+        color: $text-900;
+      }
 
-      // red underline
       .mm-navbar__underline {
         position: absolute;
-        top: 62px;          // 108px − 5px
+        top: 62px;
         left: 0;
         width: 100%;
         height: 5px;
@@ -79,47 +67,51 @@
     }
   }
 
-  // 5) Right cluster
   &__right {
-    display: flex;
-    align-items: center;
     flex: 0 0 auto;
-    margin-left: clamp(30px, 1.2vw, 60px);
-    gap: clamp(56px, 6vw, 72px);              // PL gap from phone text
-
+    margin-left: clamp(30px,1.2vw,60px);
+    //gap: clamp(56px,6vw,72px);
+    gap: clamp(4px, .8vw, 6px);
     .mm-navbar__phone {
-      display: flex;
-      align-items: center;
-      gap: clamp(4px, .8vw, 6px);             // icon <-> text
-      color: #1A1A1A;
-      text-decoration: none;
+      gap: clamp(4px,0.8vw,6px);
+
       &-icon {
-        width: clamp(16px, 1.4vw, 16px);        // from XD
-        height: clamp(21px, 1.8vw, 21px);
+        width: 16px;
+        height: 21px;
       }
       &-text {
         font-family: $font-head;
+        color: $text-900;
         font-weight: 400;
-        font-size:  clamp(16px, 1.1vw, 16px);
-        line-height: clamp(21px, 1.3vw, 21px);
+        font-size: 16px;
+        line-height: 21px;
       }
     }
 
     .mm-navbar__lang {
-      width: clamp(32px, 10vw, 42px);          // 42px circle
-      height: clamp(32px, 10vw, 42px);
+      width: clamp(32px,10vw,42px);
+      height: clamp(32px,10vw,42px);
       border-radius: 50%;
-      background: #E21E26;
+      background: $primary;
       color: #fff;
       font-family: $font-head;
       font-weight: 400;
-      font-size:  clamp(16px, 1.1vw, 16px);
-      line-height: clamp(21px, 1.3vw, 21px);
+      font-size: 16px;
+      line-height: 21px;
       border: none;
-      flex: 0 0 auto;
     }
+
+      @media (max-width: 991.98px) {
+        margin-left: 1rem;
+      }
   }
 
-  // 6) Never wrap
-  * { white-space: nowrap; }
+  // hide menu until toggled on small
+  .navbar-collapse {
+    @media (max-width: 991.98px) {
+      background: #F6F3EB;
+      padding: 1rem 0;
+    }
+  }
 }
+

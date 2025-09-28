@@ -11881,15 +11881,12 @@ img {
 .mm-navbar__rule {
   position: absolute;
   top: 108px;
-  left: 0.5px;
+  left: 0;
   width: 100%;
   border-top: 1px solid #D1D1D1;
+  z-index: 10;
 }
 .mm-navbar__wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
   padding-left: 16px;
   padding-right: 16px;
 }
@@ -11912,33 +11909,24 @@ img {
 .mm-navbar__brand img {
   width: clamp(64px, 10vw, 121px);
   height: auto !important;
-  display: block;
 }
 .mm-navbar__menu {
   display: flex;
-  align-items: center;
   gap: clamp(38px, 12vw, 58px);
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
-.mm-navbar__menu li {
-  white-space: nowrap;
-}
-.mm-navbar__menu .mm-navbar__link {
+.mm-navbar__menu .nav-link {
   position: relative;
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
   font-size: clamp(16px, 1.2vw, 18px);
   line-height: clamp(22px, 1.6vw, 24px);
   color: #1A1A1A;
-  text-decoration: none;
-  padding: 0;
+  text-wrap: nowrap;
 }
-.mm-navbar__menu .mm-navbar__link:hover, .mm-navbar__menu .mm-navbar__link.active {
+.mm-navbar__menu .nav-link.active, .mm-navbar__menu .nav-link:hover {
   color: #1A1A1A;
 }
-.mm-navbar__menu .mm-navbar__link .mm-navbar__underline {
+.mm-navbar__menu .nav-link .mm-navbar__underline {
   position: absolute;
   top: 62px;
   left: 0;
@@ -11947,32 +11935,27 @@ img {
   background: #E21E26;
   opacity: 0;
 }
-.mm-navbar__menu .mm-navbar__link.active .mm-navbar__underline {
+.mm-navbar__menu .nav-link.active .mm-navbar__underline {
   opacity: 1;
 }
 .mm-navbar__right {
-  display: flex;
-  align-items: center;
   flex: 0 0 auto;
   margin-left: clamp(30px, 1.2vw, 60px);
-  gap: clamp(56px, 6vw, 72px);
+  gap: clamp(4px, 0.8vw, 6px);
 }
 .mm-navbar__right .mm-navbar__phone {
-  display: flex;
-  align-items: center;
   gap: clamp(4px, 0.8vw, 6px);
-  color: #1A1A1A;
-  text-decoration: none;
 }
 .mm-navbar__right .mm-navbar__phone-icon {
-  width: clamp(16px, 1.4vw, 16px);
-  height: clamp(21px, 1.8vw, 21px);
+  width: 16px;
+  height: 21px;
 }
 .mm-navbar__right .mm-navbar__phone-text {
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1A1A1A;
   font-weight: 400;
-  font-size: clamp(16px, 1.1vw, 16px);
-  line-height: clamp(21px, 1.3vw, 21px);
+  font-size: 16px;
+  line-height: 21px;
 }
 .mm-navbar__right .mm-navbar__lang {
   width: clamp(32px, 10vw, 42px);
@@ -11982,13 +11965,20 @@ img {
   color: #fff;
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
-  font-size: clamp(16px, 1.1vw, 16px);
-  line-height: clamp(21px, 1.3vw, 21px);
+  font-size: 16px;
+  line-height: 21px;
   border: none;
-  flex: 0 0 auto;
 }
-.mm-navbar * {
-  white-space: nowrap;
+@media (max-width: 991.98px) {
+  .mm-navbar__right {
+    margin-left: 1rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .mm-navbar .navbar-collapse {
+    background: #F6F3EB;
+    padding: 1rem 0;
+  }
 }
 
 .flow4 {

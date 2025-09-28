@@ -10,36 +10,44 @@
 <body class="page-serwis">
 <!-- NAVBAR (optional placeholder, remove if you already include one globally) -->
 <header class="mm-navbar">
-    <!-- 1) Gray ruler at bottom -->
+    <!-- Gray rule -->
     <div class="mm-navbar__rule"></div>
 
-    <!-- 2) Nav container -->
-    <div class="mm-navbar__wrap">
-        <!-- Logo (left) -->
-        <a href="index.html" class="mm-navbar__brand" aria-label="iQrad">
-            <img src="img/flow4/icons/logo.svg" alt="iQrad" />
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mm-navbar__wrap">
+        <!-- Logo -->
+        <a class="navbar-brand mm-navbar__brand" href="index.html" aria-label="iQrad">
+            <img src="img/flow4/icons/logo.svg" alt="iQrad">
         </a>
 
-        <!-- Menu (center) -->
-        <ul class="mm-navbar__menu">
-            <li><a href="o-nas.html" class="mm-navbar__link">O nas<span class="mm-navbar__underline"></span></a></li>
-            <li><a href="oferta.html" class="mm-navbar__link">Oferta<span class="mm-navbar__underline"></span></a></li>
-            <li><a href="katalog.html" class="mm-navbar__link">Katalogi<span class="mm-navbar__underline"></span></a></li>
-            <li><a href="faq.html" class="mm-navbar__link">Faq<span class="mm-navbar__underline"></span></a></li>
-            <li><a href="serwis.html" class="mm-navbar__link active">Serwis<span class="mm-navbar__underline"></span></a></li>
-            <li><a href="kontakt.html" class="mm-navbar__link">Kontakt<span class="mm-navbar__underline"></span></a></li>
-        </ul>
+        <!-- Hamburger toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mmNav"
+                aria-controls="mmNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- Phone + PL (right) -->
-        <div class="mm-navbar__right">
-            <a href="tel:+48660468569" class="mm-navbar__phone">
-                <img src="img/flow4/icons/phone.svg" alt="Phone" class="mm-navbar__phone-icon" />
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse justify-content-center" id="mmNav">
+            <!-- Center menu -->
+            <ul class="navbar-nav mm-navbar__menu">
+                <li class="nav-item"><a class="nav-link mm-navbar__link" href="o-nas.html">O nas<span class="mm-navbar__underline"></span></a></li>
+                <li class="nav-item"><a class="nav-link mm-navbar__link" href="oferta.html">Oferta<span class="mm-navbar__underline"></span></a></li>
+                <li class="nav-item"><a class="nav-link mm-navbar__link" href="katalog.html">Katalogi<span class="mm-navbar__underline"></span></a></li>
+                <li class="nav-item"><a class="nav-link mm-navbar__link" href="faq.html">Faq<span class="mm-navbar__underline"></span></a></li>
+                <li class="nav-item"><a class="nav-link mm-navbar__link active" href="serwis.html">Serwis<span class="mm-navbar__underline"></span></a></li>
+                <li class="nav-item"><a class="nav-link mm-navbar__link" href="kontakt.html">Kontakt<span class="mm-navbar__underline"></span></a></li>
+            </ul>
+        </div>
+        <!-- Right cluster -->
+        <div class="d-flex align-items-center ms-lg-5 mm-navbar__right">
+            <a href="tel:+48660468569" class="mm-navbar__phone text-decoration-none d-flex align-items-center">
+                <img src="img/flow4/icons/phone.svg" alt="Phone" class="mm-navbar__phone-icon">
                 <span class="mm-navbar__phone-text">+48 660 468 569</span>
             </a>
-            <button class="mm-navbar__lang" aria-label="Język: polski">Pl</button>
+            <button class="mm-navbar__lang ms-3" aria-label="Język: polski">PL</button>
         </div>
-    </div>
+    </nav>
 </header>
+
 
 
 <!-- ============ MONITOR SECTION ============ -->
@@ -117,6 +125,8 @@
 
 <!-- FOOTER placeholder off -->
 <footer class="d-none"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
