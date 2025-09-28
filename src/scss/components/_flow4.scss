@@ -63,10 +63,10 @@
       flex: 0 0 auto;
       box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
       border-radius: 106px;
-      height: clamp(40px, 4vw, 90px);
+      height: clamp(50px, 6vw, 90px);
       background: #fff;
-      width: clamp(150px, 22vw, 400px);
-      padding: 0 clamp(1rem, 3vw, 1.5rem);
+      width: clamp(240px, 20vw, 480px);
+      padding: clamp(0.1rem, 3vw, .5rem) 20px;
     }
     .flow4__cta-pre {
       font-family: $font-head;
