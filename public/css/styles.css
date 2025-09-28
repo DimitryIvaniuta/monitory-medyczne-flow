@@ -12046,7 +12046,7 @@ img {
   height: auto !important;
   min-height: clamp(70px, 12vw, 90px);
   max-height: 90px;
-  width: auto !important;
+  width: 400px;
   z-index: 3;
 }
 .flow4__cta .flow4__cta-pre {
@@ -12071,12 +12071,14 @@ img {
 }
 .flow4__hotspot {
   position: absolute;
-  top: 50%;
-  left: 60%;
+  top: 20%;
+  left: 88%;
   transform: translate(-50%, -50%);
   z-index: 3;
 }
 .flow4__hotspot .flow4__hotspot-circle {
+  position: relative;
+  left: 38%;
   flex: 0 0 auto;
   width: clamp(32px, 4vw, 48px);
   height: clamp(32px, 4vw, 48px);
@@ -12084,24 +12086,31 @@ img {
   border-radius: 50%;
 }
 .flow4__hotspot .flow4__hotspot-line {
-  position: absolute;
-  top: clamp(22px, 3vh, 25px);
-  left: clamp(22px, 3vw, 25px);
+  position: relative;
+  top: 48%;
+  left: 35%;
   width: clamp(80px, 10vw, 135px);
   border-top: 2px solid #000;
 }
 .flow4__hotspot .flow4__hotspot-labels {
-  margin-left: clamp(110px, 12vw, 150px);
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  top: -140%;
+  left: 36%;
 }
 .flow4__hotspot .flow4__hotspot-labels .flow4__hotspot-title {
+  position: relative;
+  top: -180%;
+  left: 90%;
   font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(16px, 1.5vw, 24px);
   line-height: clamp(24px, 2vw, 32px);
+  text-wrap: nowrap;
 }
 .flow4__hotspot .flow4__hotspot-labels .flow4__hotspot-sub {
+  position: relative;
+  top: -160%;
+  left: 90%;
   font-family: "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
   font-size: clamp(16px, 1.5vw, 24px);
@@ -12109,12 +12118,12 @@ img {
 }
 .flow4__dots {
   position: absolute;
-  top: 40%;
-  left: 90%;
+  top: 30%;
+  right: 5%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 2vw, 24px);
+  gap: clamp(6px, 2vw, 12px);
   z-index: 3;
 }
 .flow4__dots .flow4__dot {
