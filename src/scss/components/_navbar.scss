@@ -2,116 +2,202 @@
 
 .mm-navbar {
   position: relative;
-  background: #F6F3EB;
-  height: 108px;
+  background: $cream;
+  z-index: 1000;
 
-  // 1) Bottom gray ruler
+  // 1) Bottom rule
   &__rule {
     position: absolute;
-    top: 108px;
+    bottom: 0;
     left: 0;
     width: 100%;
     border-top: 1px solid #D1D1D1;
-    z-index: 10;
   }
 
-  // 2) Inner wrap with fixed gutters/margins
-  &__wrap {
-    // use Bootstrap’s padding + our gutters
-    padding-left: 16px;
-    padding-right: 16px;
-    @media (min-width: 992px)  { padding-left: 56px; padding-right: 56px; }
-    @media (min-width: 1200px) { padding-left: 80px; padding-right: 80px; }
-  }
+  // nav container
+  .navbar {
+    &.mm-navbar__wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      height: 108px;
+      padding-left: 16px;
+      padding-right: 16px;
 
-  // 3) Logo (left)
-  &__brand {
-    flex: 0 0 auto;
-    margin-right: clamp(30px,1.2vw,60px);
-
-    img {
-      width: clamp(64px,10vw,121px);
-      height: auto !important;
+      @media (min-width: 992px) {
+        padding-left: 56px;
+        padding-right: 56px;
+      }
+      @media (min-width: 1200px) {
+        padding-left: 80px;
+        padding-right: 80px;
+      }
     }
-  }
 
-  // 4) Center menu
-  &__menu {
-    display: flex;
-    gap: clamp(38px,12vw,58px);
+    // Logo
+    .navbar-brand.mm-navbar__brand {
+      margin-right: clamp(30px, 1.2vw, 60px);
 
-    .nav-link {
-      position: relative;
-      font-family: $font-head;
-      font-weight: 400;
-      font-size: clamp(16px,1.2vw,18px);
-      line-height: clamp(22px,1.6vw,24px);
-      color: $text-900;
-      text-wrap: nowrap;
-
-      &.active,
-      &:hover {
-        color: $text-900;
+      img {
+        width: clamp(64px, 10vw, 121px);
+        height: auto !important;
       }
-
-      .mm-navbar__underline {
-        position: absolute;
-        top: 62px;
-        left: 0;
-        width: 100%;
-        height: 5px;
-        background: #E21E26;
-        opacity: 0;
-      }
-      &.active .mm-navbar__underline { opacity: 1; }
     }
-  }
 
-  &__right {
-    flex: 0 0 auto;
-    margin-left: clamp(30px,1.2vw,60px);
-    //gap: clamp(56px,6vw,72px);
-    gap: clamp(4px, .8vw, 6px);
-    .mm-navbar__phone {
-      gap: clamp(4px,0.8vw,6px);
-
-      &-icon {
-        width: 16px;
-        height: 21px;
+    // Toggler
+    .navbar-toggler {
+      border: none;
+      font-size: 1.25rem;
+      @media (min-width: 992px) {
+        display: none;
       }
-      &-text {
+    }
+
+    // Collapse
+    .navbar-collapse {
+      // on small: make this static so it pushes content
+      @media (max-width: 991.98px) {
+        position: static !important;
+        width: 100% !important;
+        background: #F6F3EB;
+        flex-basis: 100%;
+      }
+
+      // on lg+: center menu, keep nowrap
+      @media (min-width: 992px) {
+        justify-content: center;
+      }
+    }
+
+    // 4) Menu
+    .navbar-nav.mm-navbar__menu {
+      display: flex;
+      flex-direction: column; // default for small
+      gap: 0;
+      width: 100%;
+
+      @media (min-width: 992px) {
+        flex-direction: row;
+        gap: clamp(38px, 12vw, 58px);
+        width: auto;
+      }
+
+      .nav-item {
+        @media (max-width: 991.98px) {
+          border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        @media (min-width: 992px) {
+          border: none;
+        }
+      }
+
+      .nav-link.mm-navbar__link {
+        position: relative;
+        padding: 1rem;
         font-family: $font-head;
+        font-weight: 400;
+        font-size: clamp(16px, 1.2vw, 18px);
+        line-height: clamp(22px, 1.6vw, 24px);
         color: $text-900;
+
+        &:hover, &.active { color: $text-900; }
+
+        .mm-navbar__underline {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 5px;
+          background: #E21E26;
+          opacity: 0;
+          top: 77px;
+        }
+        &.active .mm-navbar__underline { opacity: 1; }
+      }
+    }
+
+    // 5) Phone + PL — always visible
+    .mm-navbar__right {
+      display: flex;
+      align-items: center;
+      gap: clamp(56px, 6vw, 72px);
+      flex: 0 0 auto;
+
+      @media (max-width: 991.98px) {
+        order: 3;       // move below nav items if wrap
+        margin-top: 1rem;
+      }
+
+      .mm-navbar__phone {
+        display: flex;
+        align-items: center;
+        gap: clamp(4px, .8vw, 6px);
+        text-decoration: none;
+        color: $text-900;
+
+        &-icon {
+          width: 16px;
+          height: 21px;
+        }
+        &-text {
+          font-family: $font-head;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 21px;
+        }
+      }
+
+      .mm-navbar__lang {
+        width: clamp(32px, 10vw, 42px);
+        height: clamp(32px, 10vw, 42px);
+        border-radius: 50%;
+        background: $primary;
+        color: #fff;
+        font-family: $font-head;
         font-weight: 400;
         font-size: 16px;
         line-height: 21px;
+        border: none;
+        margin-left: clamp(0.5rem, 2vw, 0.75rem) !important;
       }
-    }
-
-    .mm-navbar__lang {
-      width: clamp(32px,10vw,42px);
-      height: clamp(32px,10vw,42px);
-      border-radius: 50%;
-      background: $primary;
-      color: #fff;
-      font-family: $font-head;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 21px;
-      border: none;
-    }
-
-      @media (max-width: 991.98px) {
-        margin-left: 1rem;
-      }
-  }
-
-  // hide menu until toggled on small
-  .navbar-collapse {
-    @media (max-width: 991.98px) {
-      background: #F6F3EB;
-      padding: 1rem 0;
     }
   }
 }
 
+@media (max-width: 991.98px) {
+  .navbar.mm-navbar__wrap {
+    /* keep all controls on the same baseline */
+    flex-wrap: wrap;
+    align-items: center !important;
+  }
+
+  /* Logo stays first */
+  .mm-navbar__brand {
+    order: 1;
+  }
+
+  /* Hamburger second */
+  .navbar-toggler {
+    order: 2;
+  }
+
+  /* Phone+PL third, remove any top margin */
+  .mm-navbar__right {
+    order: 3;
+    margin-top: 0 !important;
+  }
+
+  /* Finally, the collapsed menu drops below */
+  .navbar-collapse {
+    order: 4;
+    /* give it some breathing room */
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse.show + .mm-navbar__right {
+    display: none !important;
+  }
+}

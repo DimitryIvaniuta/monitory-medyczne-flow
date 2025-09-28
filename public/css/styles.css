@@ -11875,89 +11875,144 @@ img {
 
 .mm-navbar {
   position: relative;
-  background: #F6F3EB;
-  height: 108px;
+  background: #F0ECE4;
+  z-index: 1000;
 }
 .mm-navbar__rule {
   position: absolute;
-  top: 108px;
+  bottom: 0;
   left: 0;
   width: 100%;
   border-top: 1px solid #D1D1D1;
-  z-index: 10;
 }
-.mm-navbar__wrap {
+.mm-navbar .navbar.mm-navbar__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 108px;
   padding-left: 16px;
   padding-right: 16px;
 }
 @media (min-width: 992px) {
-  .mm-navbar__wrap {
+  .mm-navbar .navbar.mm-navbar__wrap {
     padding-left: 56px;
     padding-right: 56px;
   }
 }
 @media (min-width: 1200px) {
-  .mm-navbar__wrap {
+  .mm-navbar .navbar.mm-navbar__wrap {
     padding-left: 80px;
     padding-right: 80px;
   }
 }
-.mm-navbar__brand {
-  flex: 0 0 auto;
+.mm-navbar .navbar .navbar-brand.mm-navbar__brand {
   margin-right: clamp(30px, 1.2vw, 60px);
 }
-.mm-navbar__brand img {
+.mm-navbar .navbar .navbar-brand.mm-navbar__brand img {
   width: clamp(64px, 10vw, 121px);
   height: auto !important;
 }
-.mm-navbar__menu {
-  display: flex;
-  gap: clamp(38px, 12vw, 58px);
+.mm-navbar .navbar .navbar-toggler {
+  border: none;
+  font-size: 1.25rem;
 }
-.mm-navbar__menu .nav-link {
+@media (min-width: 992px) {
+  .mm-navbar .navbar .navbar-toggler {
+    display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .mm-navbar .navbar .navbar-collapse {
+    position: static !important;
+    width: 100% !important;
+    background: #F6F3EB;
+    flex-basis: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .mm-navbar .navbar .navbar-collapse {
+    justify-content: center;
+  }
+}
+.mm-navbar .navbar .navbar-nav.mm-navbar__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .mm-navbar .navbar .navbar-nav.mm-navbar__menu {
+    flex-direction: row;
+    gap: clamp(38px, 12vw, 58px);
+    width: auto;
+  }
+}
+@media (max-width: 991.98px) {
+  .mm-navbar .navbar .navbar-nav.mm-navbar__menu .nav-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+@media (min-width: 992px) {
+  .mm-navbar .navbar .navbar-nav.mm-navbar__menu .nav-item {
+    border: none;
+  }
+}
+.mm-navbar .navbar .navbar-nav.mm-navbar__menu .nav-link.mm-navbar__link {
   position: relative;
+  padding: 1rem;
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 400;
   font-size: clamp(16px, 1.2vw, 18px);
   line-height: clamp(22px, 1.6vw, 24px);
   color: #1A1A1A;
-  text-wrap: nowrap;
 }
-.mm-navbar__menu .nav-link.active, .mm-navbar__menu .nav-link:hover {
+.mm-navbar .navbar .navbar-nav.mm-navbar__menu .nav-link.mm-navbar__link:hover, .mm-navbar .navbar .navbar-nav.mm-navbar__menu .nav-link.mm-navbar__link.active {
   color: #1A1A1A;
 }
-.mm-navbar__menu .nav-link .mm-navbar__underline {
+.mm-navbar .navbar .navbar-nav.mm-navbar__menu .nav-link.mm-navbar__link .mm-navbar__underline {
   position: absolute;
-  top: 62px;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: 5px;
   background: #E21E26;
   opacity: 0;
+  top: 77px;
 }
-.mm-navbar__menu .nav-link.active .mm-navbar__underline {
+.mm-navbar .navbar .navbar-nav.mm-navbar__menu .nav-link.mm-navbar__link.active .mm-navbar__underline {
   opacity: 1;
 }
-.mm-navbar__right {
+.mm-navbar .navbar .mm-navbar__right {
+  display: flex;
+  align-items: center;
+  gap: clamp(56px, 6vw, 72px);
   flex: 0 0 auto;
-  margin-left: clamp(30px, 1.2vw, 60px);
-  gap: clamp(4px, 0.8vw, 6px);
 }
-.mm-navbar__right .mm-navbar__phone {
-  gap: clamp(4px, 0.8vw, 6px);
+@media (max-width: 991.98px) {
+  .mm-navbar .navbar .mm-navbar__right {
+    order: 3;
+    margin-top: 1rem;
+  }
 }
-.mm-navbar__right .mm-navbar__phone-icon {
+.mm-navbar .navbar .mm-navbar__right .mm-navbar__phone {
+  display: flex;
+  align-items: center;
+  gap: clamp(4px, 0.8vw, 6px);
+  text-decoration: none;
+  color: #1A1A1A;
+}
+.mm-navbar .navbar .mm-navbar__right .mm-navbar__phone-icon {
   width: 16px;
   height: 21px;
 }
-.mm-navbar__right .mm-navbar__phone-text {
+.mm-navbar .navbar .mm-navbar__right .mm-navbar__phone-text {
   font-family: "LG El Headline", "LG EI Headline", "LG El Text", "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  color: #1A1A1A;
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
 }
-.mm-navbar__right .mm-navbar__lang {
+.mm-navbar .navbar .mm-navbar__right .mm-navbar__lang {
   width: clamp(32px, 10vw, 42px);
   height: clamp(32px, 10vw, 42px);
   border-radius: 50%;
@@ -11968,19 +12023,40 @@ img {
   font-size: 16px;
   line-height: 21px;
   border: none;
-}
-@media (max-width: 991.98px) {
-  .mm-navbar__right {
-    margin-left: 1rem;
-  }
-}
-@media (max-width: 991.98px) {
-  .mm-navbar .navbar-collapse {
-    background: #F6F3EB;
-    padding: 1rem 0;
-  }
+  margin-left: clamp(0.5rem, 2vw, 0.75rem) !important;
 }
 
+@media (max-width: 991.98px) {
+  .navbar.mm-navbar__wrap {
+    /* keep all controls on the same baseline */
+    flex-wrap: wrap;
+    align-items: center !important;
+  }
+  /* Logo stays first */
+  .mm-navbar__brand {
+    order: 1;
+  }
+  /* Hamburger second */
+  .navbar-toggler {
+    order: 2;
+  }
+  /* Phone+PL third, remove any top margin */
+  .mm-navbar__right {
+    order: 3;
+    margin-top: 0 !important;
+  }
+  /* Finally, the collapsed menu drops below */
+  .navbar-collapse {
+    order: 4;
+    /* give it some breathing room */
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 991.98px) {
+  .navbar-collapse.show + .mm-navbar__right {
+    display: none !important;
+  }
+}
 .flow4 {
   background: #F0ECE4;
 }
