@@ -1,0 +1,81 @@
+@use "abstracts/fonts" as fonts;
+@use "abstracts/mixins" as mixins;
+@use "abstracts/variables" as vars;
+
+.flow5 {
+  //position: relative;
+  //background: url('../img/flow5/komfort.png') center center / cover no-repeat;
+  //color: #fff;
+  //padding: 6rem 0;
+  position: relative;
+  /* full-width BG; height adjusts with viewport height */
+  width: 100vw;
+  height: clamp(400px, 100vh, 973px);
+  background: url('../img/flow5/komfort.png') center/cover no-repeat;
+  color: #fff;
+  display: flex;
+  //align-items: center;
+  //justify-content: center;
+  overflow: hidden;
+
+  /* semi-opaque black overlay per XD canvas */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+  &__content {
+    position: absolute;
+    top: 62%;        // 70% down
+    left: clamp(8%, 18vw, 18%);       // 30% in from left
+    //transform: translateY(-20%); // only pull up by its 70% offset
+    width: 100%;      // adjust as needed for your text column
+    z-index: 2;      // above the overlay
+  }
+  &__preline {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: fonts.$font-head;
+    font-weight: 400;
+    transition: font-size 0.8s ease, line-height 0.8s ease;
+    // red then white
+    span {
+      &:first-child { color: vars.$primary; margin-right: 0.5rem; }
+      &:last-child { color: #fff; }
+      transition: color 0.8s ease;
+    }
+    // responsive sizing
+    //@include mixins.fluid-range(font-size, 24px, 42px, 320, 1200);
+    //@include mixins.fluid-range(line-height, 26px, 46px, 320, 1200);
+    font-size: clamp(24px, 4vw, 42px);
+    line-height: clamp(26px, 10vw, 46px);
+    text-wrap: nowrap;
+  }
+
+  &__headline {
+    position: relative;
+    z-index: 2;
+    text-align: start;
+    font-family: fonts.$font-head;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: font-size 0.8s ease, line-height 0.8s ease;
+    // two lines stacked
+    h2 {
+      &:first-of-type { color: #fff; }
+      &:last-of-type  { color: vars.$primary; }
+      text-wrap: nowrap;
+      //@include mixins.fluid-range(font-size, 36px, 97px, 320, 1200);
+      //@include mixins.fluid-range(line-height, 40px, 108px, 320, 1200);
+      font-size: clamp(36px, 8vw, 97px);
+      line-height: clamp(40px, 10vw, 108px);
+      transition: font-size 0.8s ease, line-height 0.8s ease;
+    }
+  }
+}

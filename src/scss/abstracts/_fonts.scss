@@ -1,0 +1,49 @@
+// LG EI Text Regular
+@font-face {
+  font-family: 'LG EI Text';
+  src: url('../fonts/LGEIText-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// LG EI Text SemiBold
+@font-face {
+  font-family: 'LG EI Text';
+  src: url('../fonts/LGEIText-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+// LG EI Text Bold
+@font-face {
+  font-family: 'LG EI Text';
+  src: url('../fonts/LGEIText-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// LG EI Text Light
+@font-face {
+  font-family: 'LG EI Text';
+  src: url('../fonts/LGEIText-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// SuperClarendon Regular (Title font)
+@font-face {
+  font-family: 'Super Clarendon';
+  src: url('../fonts/SuperClarendon.ttc') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Default font stacks
+$font-head: 'LG EI Text', sans-serif;
+$font-text: 'LG EI Text', sans-serif;
+$font-display: 'Super Clarendon', serif;

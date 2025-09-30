@@ -1,11 +1,27 @@
-@use "abstracts" as *;
+@use "abstracts/fonts" as fonts;
+@use "abstracts/mixins" as mixins;
+@use "abstracts/variables" as vars;
 
 .mm-navbar {
   position: relative;
-  background: $cream;
+  background: vars.$cream;
   z-index: 1000;
 
-  // 1) Bottom rule
+  .mm-navbar__wrap, &__brand img,
+  .mm-navbar__menu .mm-navbar__link,
+  .mm-navbar__right .mm-navbar__phone-icon,
+  .mm-navbar__right .mm-navbar__phone-text,
+  .mm-navbar__lang {
+    transition:
+            width       0.8s ease,
+            height      0.8s ease,
+            font-size   0.8s ease,
+            line-height 0.8s ease,
+            margin      0.8s ease,
+            padding     0.8s ease;
+  }
+
+  // Bottom gray rule
   &__rule {
     position: absolute;
     bottom: 0;
@@ -14,190 +30,174 @@
     border-top: 1px solid #D1D1D1;
   }
 
-  // nav container
-  .navbar {
-    &.mm-navbar__wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      height: 108px;
-      padding-left: 16px;
-      padding-right: 16px;
-
-      @media (min-width: 992px) {
-        padding-left: 56px;
-        padding-right: 56px;
-      }
-      @media (min-width: 1200px) {
-        padding-left: 80px;
-        padding-right: 80px;
-      }
-    }
-
-    // Logo
-    .navbar-brand.mm-navbar__brand {
-      margin-right: clamp(30px, 1.2vw, 60px);
-
-      img {
-        width: clamp(64px, 10vw, 121px);
-        height: auto !important;
-      }
-    }
-
-    // Toggler
-    .navbar-toggler {
-      border: none;
-      font-size: 1.25rem;
-      @media (min-width: 992px) {
-        display: none;
-      }
-    }
-
-    // Collapse
-    .navbar-collapse {
-      // on small: make this static so it pushes content
-      @media (max-width: 991.98px) {
-        position: static !important;
-        width: 100% !important;
-        background: #F6F3EB;
-        flex-basis: 100%;
-      }
-
-      // on lg+: center menu, keep nowrap
-      @media (min-width: 992px) {
-        justify-content: center;
-      }
-    }
-
-    // 4) Menu
-    .navbar-nav.mm-navbar__menu {
-      display: flex;
-      flex-direction: column; // default for small
-      gap: 0;
-      width: 100%;
-
-      @media (min-width: 992px) {
-        flex-direction: row;
-        gap: clamp(38px, 12vw, 58px);
-        width: auto;
-      }
-
-      .nav-item {
-        @media (max-width: 991.98px) {
-          border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        @media (min-width: 992px) {
-          border: none;
-        }
-      }
-
-      .nav-link.mm-navbar__link {
-        position: relative;
-        padding: 1rem;
-        font-family: $font-head;
-        font-weight: 400;
-        font-size: clamp(16px, 1.2vw, 18px);
-        line-height: clamp(22px, 1.6vw, 24px);
-        color: $text-900;
-
-        &:hover, &.active { color: $text-900; }
-
-        .mm-navbar__underline {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 5px;
-          background: #E21E26;
-          opacity: 0;
-          top: 77px;
-        }
-        &.active .mm-navbar__underline { opacity: 1; }
-      }
-    }
-
-    // 5) Phone + PL — always visible
-    .mm-navbar__right {
-      display: flex;
-      align-items: center;
-      gap: clamp(56px, 6vw, 72px);
-      flex: 0 0 auto;
-
-      @media (max-width: 991.98px) {
-        order: 3;       // move below nav items if wrap
-        margin-top: 1rem;
-      }
-
-      .mm-navbar__phone {
-        display: flex;
-        align-items: center;
-        gap: clamp(4px, .8vw, 6px);
-        text-decoration: none;
-        color: $text-900;
-
-        &-icon {
-          width: 16px;
-          height: 21px;
-        }
-        &-text {
-          font-family: $font-head;
-          font-weight: 400;
-          font-size: 16px;
-          line-height: 21px;
-        }
-      }
-
-      .mm-navbar__lang {
-        width: clamp(32px, 10vw, 42px);
-        height: clamp(32px, 10vw, 42px);
-        border-radius: 50%;
-        background: $primary;
-        color: #fff;
-        font-family: $font-head;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
-        border: none;
-        margin-left: clamp(0.5rem, 2vw, 0.75rem) !important;
-      }
-    }
-  }
-}
-
-@media (max-width: 991.98px) {
+  // Navbar wrapper
   .navbar.mm-navbar__wrap {
-    /* keep all controls on the same baseline */
-    flex-wrap: wrap;
-    align-items: center !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    height: 108px;
+//    padding: 0  mixins.fluid-range(16px, 80px, 320, 1200);
+    @include mixins.fluid-range(padding-left,  16px, 80px,  320, 1200);
+    @include mixins.fluid-range(padding-right, 16px, 80px,  320, 1200);
+
+    @media (min-width: 992px) {
+      padding-left: 56px;
+      padding-right: 56px;
+    }
+    @media (min-width: 1200px) {
+      padding-left: 80px;
+      padding-right: 80px;
+    }
   }
 
-  /* Logo stays first */
-  .mm-navbar__brand {
-    order: 1;
+  // Logo
+  .navbar-brand.mm-navbar__brand {
+    flex: 0 0 auto;
+    @include mixins.fluid-range(margin-right, 30px, 60px, 320, 1200);
+
+    img {
+      transition:all ease .3s;
+      @include mixins.fluid-range(width, 64px, 121px, 320, 1200);
+      height: auto !important;
+    }
   }
 
-  /* Hamburger second */
+  // Toggler icon
   .navbar-toggler {
-    order: 2;
+    border: none;
+    font-size: 1.25rem;
+    @media (min-width: 992px) {
+      display: none;
+    }
   }
 
-  /* Phone+PL third, remove any top margin */
-  .mm-navbar__right {
-    order: 3;
-    margin-top: 0 !important;
-  }
-
-  /* Finally, the collapsed menu drops below */
+  // Collapse behavior
   .navbar-collapse {
-    order: 4;
-    /* give it some breathing room */
-    margin-top: 1rem;
+    @media (max-width: 991.98px) {
+      position: static !important;
+      width: 100% !important;
+      background: vars.$cream;
+      flex-basis: 100%;
+    }
+    @media (min-width: 992px) {
+      justify-content: center;
+    }
   }
-}
 
-@media (max-width: 991.98px) {
-  .navbar-collapse.show + .mm-navbar__right {
-    display: none !important;
+  // Menu items
+  .navbar-nav.mm-navbar__menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      @include mixins.fluid-range(gap, 38px, 58px, 320, 1200);
+      width: auto;
+    }
+
+    .nav-item {
+      @media (max-width: 991.98px) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      @media (min-width: 992px) {
+        border: none;
+      }
+    }
+
+    .nav-link.mm-navbar__link {
+      position: relative;
+      //padding: mixins.fluid-range(8px, 16px, 320, 1200) mixins.fluid-range(12px, 24px, 320, 1200);
+      @include mixins.fluid-range(padding-left,  8px, 16px, 320, 1200);
+      @include mixins.fluid-range(padding-right, 12px, 24px, 320, 1200);
+      font-family: fonts.$font-head;
+      font-weight: 200;
+      @include mixins.fluid-range(font-size, 16px, 18px, 320, 1200);
+      @include mixins.fluid-range(line-height, 22px, 24px, 320, 1200);
+      color: vars.$text-900;
+      text-decoration: none;
+
+      &:hover,
+      &.active {
+        color: vars.$text-900;
+      }
+
+      .mm-navbar__underline {
+        position: absolute;
+        bottom: 0;
+        left: 60%;
+        width: 70%;
+        height: 5px;
+        background: #E21E26;
+        opacity: 0;
+        top: 69px;
+        transform: translateX(-70%);
+      }
+      &.active .mm-navbar__underline {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Phone + Language
+  .mm-navbar__right {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    @media (max-width: 991.98px) {
+      order: 3;
+      margin-top: 1rem;
+    }
+    @include mixins.fluid-range(gap, 56px, 72px, 320, 1200);
+
+    .mm-navbar__phone {
+      display: flex;
+      align-items: center;
+      @include mixins.fluid-range(gap, 4px, 6px, 320, 1200);
+      color: vars.$text-900;
+      text-decoration: none;
+
+      &-icon {
+        @include mixins.fluid-range(width, 16px, 16px, 320, 1200);
+        @include mixins.fluid-range(height, 21px, 21px, 320, 1200);
+      }
+
+      &-text {
+        font-family: fonts.$font-head;
+        font-weight: 200;
+        @include mixins.fluid-range(font-size, 16px, 16px, 320, 1200);
+        @include mixins.fluid-range(line-height, 21px, 21px, 320, 1200);
+      }
+    }
+
+    .mm-navbar__lang {
+      @include mixins.fluid-range(width, 32px, 48px, 320, 1200);
+      @include mixins.fluid-range(height, 32px, 48px, 320, 1200);
+      border-radius: 50%;
+      background: vars.$primary;
+      color: #fff;
+      font-family: fonts.$font-head;
+      font-weight: 200;
+      @include mixins.fluid-range(font-size, 16px, 16px, 320, 1200);
+      @include mixins.fluid-range(line-height, 21px, 21px, 320, 1200);
+      border: none;
+      //margin-left: mixins.fluid-range(8px, 12px, 320, 1200) !important;
+      @include mixins.fluid-range(padding-left,  8px, 16px, 320, 1200);
+      @include mixins.fluid-range(padding-right, 12px, 24px, 320, 1200);
+    }
+  }
+
+  // Mobile ordering
+  @media (max-width: 991.98px) {
+    .navbar.mm-navbar__wrap {
+      flex-wrap: wrap;
+      align-items: center !important;
+    }
+    .mm-navbar__brand { order: 1; }
+    .navbar-toggler  { order: 2; }
+    .mm-navbar__right { order: 3; margin-top: 0 !important; }
+    .navbar-collapse  { order: 4; margin-top: 1rem; }
+    .navbar-collapse.show + .mm-navbar__right { display: none !important; }
   }
 }

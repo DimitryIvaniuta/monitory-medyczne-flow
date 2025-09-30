@@ -1,7 +1,25 @@
 @mixin respond($min) { @media (min-width: $min) { @content; } }
 
-@mixin fluid-type($minSize, $maxSize, $minViewport: 360px, $maxViewport: 1400px) {
-  font-size: clamp($minSize,
-  calc(#{$minSize} + (#{strip-unit($maxSize - $minSize)} * ((100vw - #{$minViewport}) / #{strip-unit($maxViewport - $minViewport)}))),
-  $maxSize);
+/// Mixin: fluid-range
+/// Eases a CSS property between a min and max value over a given viewport width range.
+/// @param $property The CSS property to set (e.g., font-size, margin-right)
+/// @param $min The minimum value of the property (e.g., 16px)
+/// @param $max The maximum value of the property (e.g., 24px)
+/// @param $min-vw The viewport width (in px) where scaling starts (default: 320)
+/// @param $max-vw The viewport width (in px) where scaling ends (default: 1200)
+@mixin fluid-range($property, $min, $max, $min-vw: 320, $max-vw: 1200) {
+  // below min-vw, use the minimum
+  #{$property}: $min;
+
+  // between min-vw and max-vw, fluid calc
+  @media (min-width: #{$min-vw}px) and (max-width: #{$max-vw}px) {
+    #{$property}: calc(
+            #{$min} + (#{$max} - #{$min}) * ((100vw - #{$min-vw}px) / (#{$max-vw} - #{$min-vw}))
+    );
+  }
+
+  // above max-vw, use the maximum
+  @media (min-width: #{$max-vw}px) {
+    #{$property}: $max;
+  }
 }
