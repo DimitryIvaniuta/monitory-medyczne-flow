@@ -17,9 +17,11 @@
   &__left {
     position: relative;
     // start about 20% from left, shrink to 10% at narrow widths
-    margin-left: clamp(100px, 20vw, 200px);
+    margin-left: clamp(50px, 20vw, 80px);
+    margin-right: clamp(-20px, -5vw, -50px);
     // ensure the content still flows normally
     text-align: left;
+    text-wrap: nowrap;
   }
 
   // Right‐column helper
@@ -27,7 +29,8 @@
     // ensure subhead always sits directly under headline
     display: flex;
     flex-direction: column;
-    margin-left: clamp(50px, 10vw, 0px);  // shift left slightly on wide
+    margin-left: clamp(10px, 10vw, 0px);  // shift left slightly on wide
+    min-width: 500px;
     text-align: left;
   }
 
@@ -45,7 +48,7 @@
   // Optional faint watermark behind everything
   &__watermark {
     position: absolute;
-    top: 21%;
+    top: 45%;
     left: .1%;
     font-family: fonts.$font-head;
     font-weight: 600;

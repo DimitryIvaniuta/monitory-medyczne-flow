@@ -12578,13 +12578,16 @@ img {
 }
 .flow6__left {
   position: relative;
-  margin-left: clamp(100px, 20vw, 200px);
+  margin-left: clamp(50px, 20vw, 80px);
+  margin-right: clamp(-20px, -5vw, -50px);
   text-align: left;
+  text-wrap: nowrap;
 }
 .flow6__right {
   display: flex;
   flex-direction: column;
-  margin-left: clamp(50px, 10vw, 0px);
+  margin-left: clamp(10px, 10vw, 0px);
+  min-width: 500px;
   text-align: left;
 }
 .flow6__visual {
@@ -12596,7 +12599,7 @@ img {
 }
 .flow6__watermark {
   position: absolute;
-  top: 21%;
+  top: 45%;
   left: 0.1%;
   font-family: "LG EI Text", sans-serif;
   font-weight: 600;
