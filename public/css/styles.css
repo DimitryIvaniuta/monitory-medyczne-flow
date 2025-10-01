@@ -12572,8 +12572,13 @@ img {
   position: relative;
   overflow: hidden;
 }
+.flow6__content {
+  margin: 0 auto;
+  width: clamp(600px, 60%, 1000px);
+}
 .flow6__left {
-  margin-left: clamp(200px, 20vw, 100px);
+  position: relative;
+  margin-left: clamp(100px, 20vw, 200px);
   text-align: left;
 }
 .flow6__right {
@@ -12586,10 +12591,13 @@ img {
   margin-top: -5rem;
   margin-left: clamp(0px, -10vw, -200px);
 }
+.flow6__subhead {
+  margin-top: clamp(1rem, 2vw, 2rem);
+}
 .flow6__watermark {
   position: absolute;
-  top: 10%;
-  left: 5%;
+  top: 21%;
+  left: 0.1%;
   font-family: "LG EI Text", sans-serif;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.04);
@@ -12598,12 +12606,12 @@ img {
 }
 @media (min-width: 320px) and (max-width: 1200px) {
   .flow6__watermark {
-    font-size: calc(72px + (200px - 72px) * (100vw - 320px) / (1200 - 320));
+    font-size: calc(72px + (265px - 72px) * (100vw - 320px) / (1200 - 320));
   }
 }
 @media (min-width: 1200px) {
   .flow6__watermark {
-    font-size: 200px;
+    font-size: 265px;
   }
 }
 .flow6__watermark {

@@ -7,11 +7,17 @@
   position: relative;
   overflow: hidden;
 
+  // Content wrapper: center, but constrain width
+  &__content {
+    margin: 0 auto;
+    width: clamp(600px, 60%, 1000px);
+  }
+
   // Left‐column helper
   &__left {
+    position: relative;
     // start about 20% from left, shrink to 10% at narrow widths
-    margin-left: clamp(200px, 20vw, 100px);
-
+    margin-left: clamp(100px, 20vw, 200px);
     // ensure the content still flows normally
     text-align: left;
   }
@@ -31,16 +37,21 @@
     margin-left: clamp(0px, -10vw, -200px); // move left up to 200px on large
   }
 
+  // Subhead should always sit under the headline
+  &__subhead {
+    margin-top: clamp(1rem, 2vw, 2rem);
+  }
+
   // Optional faint watermark behind everything
   &__watermark {
     position: absolute;
-    top: 10%;
-    left: 5%;
+    top: 21%;
+    left: .1%;
     font-family: fonts.$font-head;
     font-weight: 600;
     color: rgba(0,0,0,0.04);
     white-space: pre-line;
-    @include mixins.fluid-range(font-size,  72px, 200px, 320, 1200);
+    @include mixins.fluid-range(font-size,  72px, 265px, 320, 1200);
     line-height: 1.1;
     z-index: 1;
   }
