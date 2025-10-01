@@ -12566,3 +12566,161 @@ img {
   line-height: clamp(40px, 10vw, 108px);
   transition: font-size 0.8s ease, line-height 0.8s ease;
 }
+
+.flow6 {
+  background: #F0ECE4;
+  position: relative;
+  overflow: hidden;
+}
+.flow6__watermark {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  font-family: "LG EI Text", sans-serif;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.04);
+  white-space: pre-line;
+  font-size: 72px;
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .flow6__watermark {
+    font-size: calc(72px + (200px - 72px) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media (min-width: 1200px) {
+  .flow6__watermark {
+    font-size: 200px;
+  }
+}
+.flow6__watermark {
+  line-height: 1.1;
+  z-index: 1;
+}
+.flow6 .row {
+  position: relative;
+  z-index: 2;
+}
+.flow6__label {
+  display: inline-block;
+  background: #E21E26;
+  color: #fff;
+  font-family: "LG EI Text", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .flow6__label {
+    font-size: calc(16px + (16px - 16px) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media (min-width: 1200px) {
+  .flow6__label {
+    font-size: 16px;
+  }
+}
+.flow6__label {
+  line-height: 32px;
+  padding: 0 1rem;
+  border-radius: 28px;
+  margin-bottom: 1rem;
+}
+.flow6__headline {
+  font-family: "LG EI Text", sans-serif;
+  font-weight: 600;
+  color: #000;
+  text-align: left;
+  margin: 0;
+  font-size: 56px;
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .flow6__headline {
+    font-size: calc(56px + (56px - 56px) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media (min-width: 1200px) {
+  .flow6__headline {
+    font-size: 56px;
+  }
+}
+.flow6__headline {
+  line-height: 1.3;
+}
+.flow6__subhead {
+  font-family: "LG EI Text", sans-serif;
+  font-weight: 600;
+  color: #131414;
+  margin-top: clamp(1rem, 2vw, 2rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  font-size: 32px;
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .flow6__subhead {
+    font-size: calc(32px + (32px - 32px) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media (min-width: 1200px) {
+  .flow6__subhead {
+    font-size: 32px;
+  }
+}
+.flow6__subhead {
+  line-height: 1.3;
+}
+.flow6__copy {
+  font-family: "LG EI Text", sans-serif;
+  font-weight: 400;
+  color: #131414;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  font-size: 18px;
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .flow6__copy {
+    font-size: calc(18px + (18px - 18px) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media (min-width: 1200px) {
+  .flow6__copy {
+    font-size: 18px;
+  }
+}
+.flow6__copy {
+  line-height: 1.4;
+}
+.flow6__cta-container {
+  margin-bottom: 3rem;
+}
+.flow6__cta-btn {
+  background: #fff;
+  color: #131414;
+  font-family: "LG EI Text", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+@media (min-width: 320px) and (max-width: 1200px) {
+  .flow6__cta-btn {
+    font-size: calc(16px + (16px - 16px) * (100vw - 320px) / (1200 - 320));
+  }
+}
+@media (min-width: 1200px) {
+  .flow6__cta-btn {
+    font-size: 16px;
+  }
+}
+.flow6__cta-btn {
+  line-height: 24px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 106px;
+  border: none;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
+}
+.flow6__visual {
+  position: relative;
+  margin-top: -5rem;
+  text-align: center;
+  z-index: 2;
+}
+.flow6__visual img {
+  width: clamp(300px, 80vw, 1168px);
+  height: auto;
+}

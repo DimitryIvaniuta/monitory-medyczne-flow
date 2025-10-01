@@ -1,0 +1,108 @@
+@use "abstracts/variables" as vars;
+@use "abstracts/fonts"    as fonts;
+@use "abstracts/mixins"   as mixins;
+
+.flow6 {
+  background: vars.$cream;   // same page bg
+  position: relative;
+  overflow: hidden;
+
+  // Optional faint watermark behind everything
+  &__watermark {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-family: fonts.$font-head;
+    font-weight: 600;
+    color: rgba(0,0,0,0.04);
+    white-space: pre-line;
+    @include mixins.fluid-range(font-size,  72px, 200px, 320, 1200);
+    line-height: 1.1;
+    z-index: 1;
+  }
+
+  .row {
+    position: relative;
+    z-index: 2;
+  }
+
+  // Red “O nas” pill
+  &__label {
+    display: inline-block;
+    background: vars.$primary;
+    color: #fff;
+    font-family: fonts.$font-head;
+    font-weight: 600;
+    @include mixins.fluid-range(font-size, 16px, 16px, 320, 1200);
+    line-height: 32px;
+    padding: 0 1rem;
+    border-radius: 28px;
+    margin-bottom: 1rem;
+  }
+
+  // Main headline
+  &__headline {
+    font-family: fonts.$font-head;
+    font-weight: 600;
+    color: #000;
+    text-align: left;
+    margin: 0;
+
+    @include mixins.fluid-range(font-size, 56px, 56px, 320, 1200);
+    line-height: 1.3;
+  }
+
+  // Subhead: “Przenieś swój wyświetlacz”
+  &__subhead {
+    font-family: fonts.$font-head;
+    font-weight: 600;
+    color: #131414;
+    margin-top: clamp(1rem, 2vw, 2rem);
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+
+    @include mixins.fluid-range(font-size, 32px, 32px, 320, 1200);
+    line-height: 1.3;
+  }
+
+  // Body text
+  &__copy {
+    font-family: fonts.$font-text;
+    font-weight: 400;
+    color: #131414;
+    margin-bottom: 2rem;
+    max-width: 600px;
+
+    @include mixins.fluid-range(font-size, 18px, 18px, 320, 1200);
+    line-height: 1.4;
+  }
+
+  // “Poznaj nas” CTA
+  &__cta-container {
+    margin-bottom: 3rem;
+  }
+  &__cta-btn {
+    background: #fff;
+    color: #131414;
+    font-family: fonts.$font-text;
+    font-weight: 600;
+    @include mixins.fluid-range(font-size, 16px, 16px, 320, 1200);
+    line-height: 24px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 106px;
+    border: none;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.05);
+  }
+
+  // Decorative monitor illustration
+  &__visual {
+    position: relative;
+    margin-top: -5rem; // overlaps slightly
+    text-align: center;
+    z-index: 2;
+
+    img {
+      width: clamp(300px, 80vw, 1168px);
+      height: auto;
+    }
+  }
+}
