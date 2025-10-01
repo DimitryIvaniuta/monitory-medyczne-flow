@@ -12572,6 +12572,20 @@ img {
   position: relative;
   overflow: hidden;
 }
+.flow6__left {
+  margin-left: clamp(200px, 20vw, 100px);
+  text-align: left;
+}
+.flow6__right {
+  display: flex;
+  flex-direction: column;
+  margin-left: clamp(50px, 10vw, 0px);
+  text-align: left;
+}
+.flow6__visual {
+  margin-top: -5rem;
+  margin-left: clamp(0px, -10vw, -200px);
+}
 .flow6__watermark {
   position: absolute;
   top: 10%;

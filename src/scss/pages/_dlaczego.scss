@@ -7,6 +7,30 @@
   position: relative;
   overflow: hidden;
 
+  // Left‐column helper
+  &__left {
+    // start about 20% from left, shrink to 10% at narrow widths
+    margin-left: clamp(200px, 20vw, 100px);
+
+    // ensure the content still flows normally
+    text-align: left;
+  }
+
+  // Right‐column helper
+  &__right {
+    // ensure subhead always sits directly under headline
+    display: flex;
+    flex-direction: column;
+    margin-left: clamp(50px, 10vw, 0px);  // shift left slightly on wide
+    text-align: left;
+  }
+
+  // Decorative visual centered but nudged left on large screens
+  &__visual {
+    margin-top: -5rem;
+    margin-left: clamp(0px, -10vw, -200px); // move left up to 200px on large
+  }
+
   // Optional faint watermark behind everything
   &__watermark {
     position: absolute;
