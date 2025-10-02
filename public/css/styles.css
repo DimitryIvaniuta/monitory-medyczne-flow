@@ -12716,6 +12716,7 @@ img {
   margin-bottom: 3rem;
 }
 .flow6__cta-btn {
+  position: relative;
   background: #fff;
   color: #131414;
   font-family: "LG EI Text", sans-serif;
@@ -12738,6 +12739,7 @@ img {
   border-radius: 106px;
   border: none;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.05);
+  top: 5px;
 }
 .flow6__visual {
   position: relative;
