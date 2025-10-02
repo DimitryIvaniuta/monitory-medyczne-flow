@@ -3,7 +3,7 @@
 @use "abstracts/mixins"   as mixins;
 
 .flow6 {
-  background: vars.$cream;   // same page bg
+  background: vars.$bg-cream;   // same page bg
   position: relative;
   overflow: hidden;
 

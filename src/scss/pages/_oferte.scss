@@ -1,0 +1,131 @@
+@use "abstracts/variables" as vars;
+//@use "abstracts/fonts"    as fonts;
+//@use "abstracts/mixins"   as mixins;
+
+/* Optional section background to match the screenshot */
+.offer-hero {
+  background: vars.$bg-cream;
+}
+
+/* ----- Typography mapping from XD ----- */
+/* Family placeholder: replace with your loaded LG EI Headline Semibold */
+$headline-family: "LG EI Headline Semibold", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+
+/* Tag “Oferta” (16px / 80px line-height in XD; we normalize the line-height) */
+.offer-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;                 // XD height
+  padding: 0 16px;              // makes width ~86px with text “Oferta”
+  border-radius: 28px;          // XD radius
+  background: vars.$lg-red;
+  color: #fff;
+  font-family: $headline-family;
+  font-weight: 400;
+  font-size: 16px;              // XD font-size
+  line-height: 1;               // visually centered inside 32px height
+  letter-spacing: 0;
+}
+
+/* Main heading 56/74 from XD, responsive with clamp */
+.offer-hero__title {
+  font-family: $headline-family;
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 56px);  // <=56 on large
+  line-height: clamp(40px, 6.6vw, 74px);
+  color: vars.$lg-black;
+  margin-left: clamp(0px, 6vw, 0px);  // keep left aligned; tweak if you need more offset
+  letter-spacing: 0;
+  margin-bottom: 0;
+}
+
+/* Pills row container spacing (keeps layout breathing on all widths) */
+.offer-hero__pills {
+  margin-top: clamp(16px, 3.2vw, 32px);
+}
+
+/* Base pill (inactive by default per XD) */
+.offer-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* XD: width 392 x height 72; responsive to smaller screens */
+  width: clamp(220px, 32vw, 392px);
+  height: 72px;
+
+  padding: 0 24px;
+  border: 0;
+  background: #ffffff;
+  color: vars.$lg-black;
+  font-family: $headline-family;
+  font-weight: 600;
+  font-size: 18px;              // XD
+  line-height: 24px;            // XD
+  text-align: center;
+  border-radius: 106px;         // XD inactive radius
+  box-shadow: var(--pill-shadow);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease, color .12s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,.10);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(226,30,38,.35);
+    outline-offset: 2px;
+  }
+}
+
+/* Active pill (red) with centered triangle tip */
+.offer-pill--active {
+  background: vars.$lg-red;
+  color: #fff;
+  border-radius: 36px;         // XD active radius
+
+  &::after {
+    /* The small centered triangle under the active pill */
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;             // sits just under the pill
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid vars.$lg-red;
+  }
+}
+
+/* Captions under pills */
+.offer-hero__subtitle-top {
+  /* XD: 18/24, #131414 */
+  font-family: $headline-family;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: vars.$lg-ink;
+  letter-spacing: 0;
+  margin-bottom: 6px;
+}
+
+.offer-hero__subtitle-main {
+  /* XD: 32/43, #131414 */
+  font-family: $headline-family;
+  font-weight: 400;
+  font-size: clamp(22px, 3.3vw, 32px);
+  line-height: clamp(30px, 4.4vw, 43px);
+  color: var(--lg-ink);
+}
+
+/* ----- Fine-tuning responsive spacing (Bootstrap + a touch of custom) ----- */
+@media (min-width: 992px) {
+  .offer-hero__pills {
+    gap: 32px;               // matches visual spacing between 392px pills on desktop
+  }
+}

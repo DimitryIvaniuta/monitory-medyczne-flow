@@ -4,7 +4,7 @@
 
 .mm-navbar {
   position: relative;
-  background: vars.$cream;
+  background: vars.$bg-cream;
   z-index: 1000;
 
   .mm-navbar__wrap, &__brand img,
@@ -77,7 +77,7 @@
     @media (max-width: 991.98px) {
       position: static !important;
       width: 100% !important;
-      background: vars.$cream;
+      background: vars.$bg-cream;
       flex-basis: 100%;
     }
     @media (min-width: 992px) {
