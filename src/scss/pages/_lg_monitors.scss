@@ -31,109 +31,130 @@ $icon-gap:            5.74px;           // ~6px gap from XD (kept exact)
 .section-radiology {
   background: vars.$bg-cream;
 
-  /* Watermark word behind content */
-  .radiology-watermark {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: clamp(-24px, -2vw, -8px);   // slight bleed like in XD
-    text-align: left;
-    font-family: $font-headline;
-    font-weight: 600;                   // Semibold
-    /* Responsive scaling: match 281px at 1920, scale down gracefully */
-    font-size: clamp(110px, 14.6vw, $watermark-font);
-    line-height: clamp(150px, 19.5vw, $watermark-line);
-    letter-spacing: 0;
-    color: rgba($color-watermark, 0.03);
-    pointer-events: none;
-    user-select: none;
-    overflow: hidden;
-    white-space: nowrap;
+  /* responsive ~50px left margin for the image area */
+  .radiology-visual {
+    margin-left: clamp(8px, 3vw, 50px);
+    z-index: 2;
   }
 
-  /* Right copy block */
-  .radiology-copy {
-    max-width: 336px;                   // from XD
-    font-family: $font-body;
-    font-weight: 400;
-    font-size: $copy-size;
-    line-height: $copy-line;
-    color: $color-copy;
-    margin-left: auto;                  // keep tight to right column
+  /* Grid that never stacks: image left shrinks, text right keeps width */
+  .radiology-grid {
+    display: grid;
+    /* Left col can shrink down to 260px; right col keeps 336–520px */
+    grid-template-columns: minmax(260px, 1fr) minmax(336px, 520px);
+    align-items: start;
+    column-gap: clamp(16px, 3.5vw, 48px);
   }
 
-  /* Monitors image */
+  /* Image scales down, never overflows */
   .monitors-img {
-    max-width: 100%;
+    width: min(100%, 720px);  /* cap similar to screenshot */
     height: auto;
     display: block;
   }
 
-  /* Buttons */
-  .btn {
-    height: $btn-height;
-    min-width: 190px;                   // XD width
-    padding: 0 18px;                    // visual balance with icons+label
+  /* Right copy per XD */
+  .radiology-copy {
+    max-width: 336px;
     font-family: $font-body;
-    font-weight: 600;                   // XD says 600
-    font-size: 16px;
-    line-height: 24px;
+    font-weight: 400;
+    font-size: $copy-size;   // 18px
+    line-height: $copy-line; // 24px
+    color: $color-copy;      // #0A0A0A
+    margin: 0;
+  }
+
+  /* CTA block width follows the copy width; buttons are 50% of it */
+  .cta-stack {
+    max-width: 336px;
+    .btn {
+      width: 50%;            /* << requirement */
+      min-width: 190px;      /* XD width floor */
+      height: $btn-height;   /* 48px */
+      font-family: $font-body;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      padding-inline: 18px;
+    }
   }
 
   .btn-white-pill {
     background: $color-white;
     color: $color-copy;
-    border-radius: $btn-white-radius;
+    border-radius: 24px;
     box-shadow: $btn-shadow;
     border: 0;
   }
-
   .btn-red-pill {
-    background: $color-red;
-    color: #0A0A0A;                     // XD uses dark label on red
-    border-radius: $btn-red-radius;
+    background: $color-red;  /* #E21E26 */
+    color: #0A0A0A;
+    border-radius: 106px;
     border: 0;
-    box-shadow: none;
   }
 
-  .btn-label { white-space: nowrap; }
+  /* Watermark from earlier (unchanged) */
+  .radiology-watermark {
+    position: absolute;
+    left: -60%; right: 0;
+    top: 25%;
+    //bottom: clamp(-24px, -2vw, -8px);
+    bottom: clamp(-18px, -1.8vw, -10px);
+    text-align: left;
+    font-family: $font-headline; font-weight: 600;
+    font-size: clamp(110px, 14.6vw, 281px);
+    line-height: clamp(150px, 19.5vw, 374px);
+    letter-spacing: 0;
+    color: rgba($color-watermark, .03);
+    white-space: nowrap; pointer-events: none; user-select: none;
+  }
 
-  /* Shadow band area with floating button on the right */
+  /* Shadow band and right-aligned action preserved */
   .shadow-band-wrap {
     .shadow-band {
-      width: min(1224px, 92%);          // XD width, centered, never full-bleed
+      position: relative;
+      width: min(1224px, 100%);
       height: auto;
+      top: -70px;
+      z-index: 1;
     }
 
     .btn-all-products {
-      right: max(0px, calc((100% - min(1224px, 92%)) / 2)); // align to the right edge of the shadow band
-      top: -14px;                           // slight “rise” above the band, tweak as needed
-      transform: translateY(-10%);          // subtle optical lift
+      right: max(0px, calc((100% - min(1224px, 92%)) / 2));
+      top: -41px;
+      transform: translateY(-10%);
       background: $color-white;
       box-shadow: $btn-shadow;
-      border-radius: 106px;                 // XD
+      border-radius: 106px;
       color: $color-copy;
       padding-inline: 20px;
+      z-index: 6;
     }
   }
 }
 
-/* ====== Responsive refinements ====== */
-@media (max-width: 1199.98px) {
-  .section-radiology {
-    .radiology-copy { margin-left: 0; }
-    .shadow-band-wrap .btn-all-products { right: 8px; }
-  }
+/* Icon sizing + exact gap from XD */
+.icon-20 { width: 20px; height: 20px; }
+.icon-15 { width: 15px; height: 15px; }
+.me-icon { margin-right: 5.74px; }  /* keep XD gap */
+
+/* Small screens: hide shadow, place the button under red CTA, and keep two columns tight */
+@media (max-width: 992px) {
+    .section-radiology {
+        //.shadow-band-wrap .shadow-band { display: none; }
+        //.shadow-band-wrap .btn-all-products { display: none; } /* hide floating button */
+        .btn-all-products-inline { display: inline-flex !important; } /* show inline button */
+    }
 }
-@media (max-width: 991.98px) {
+/* Smallest devices: keep two columns but allow right column to compress a bit */
+@media (max-width: 420px) {
   .section-radiology {
-    .radiology-watermark { display: none; } // hide watermark on smaller devices to avoid clutter
-    .radiology-copy { max-width: 100%; }
-    .shadow-band-wrap .btn-all-products {
-      position: relative;
-      display: inline-flex;
-      top: 0; transform: none;
-      margin: 12px 0 0 auto;               // right-align under the band
+    .radiology-grid {
+      grid-template-columns: minmax(220px, 1fr) minmax(280px, 1fr);
+      column-gap: 16px;
+    }
+    .cta-stack .btn {
+      width: 60%;    /* give a touch more width so labels don't squeeze */
     }
   }
 }

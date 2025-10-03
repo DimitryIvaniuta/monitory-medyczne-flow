@@ -12772,28 +12772,32 @@ img {
 /* ====== Section styling ====== */
 .section-radiology {
   background: #F0ECE4;
-  /* Watermark word behind content */
+  /* responsive ~50px left margin for the image area */
 }
-.section-radiology .radiology-watermark {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: clamp(-24px, -2vw, -8px);
-  text-align: left;
-  font-family: "LG EI Headline Semibold", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  font-weight: 600;
-  /* Responsive scaling: match 281px at 1920, scale down gracefully */
-  font-size: clamp(110px, 14.6vw, 281px);
-  line-height: clamp(150px, 19.5vw, 374px);
-  letter-spacing: 0;
-  color: rgba(0, 0, 0, 0.03);
-  pointer-events: none;
-  user-select: none;
-  overflow: hidden;
-  white-space: nowrap;
+.section-radiology .radiology-visual {
+  margin-left: clamp(8px, 3vw, 50px);
+  z-index: 2;
 }
 .section-radiology {
-  /* Right copy block */
+  /* Grid that never stacks: image left shrinks, text right keeps width */
+}
+.section-radiology .radiology-grid {
+  display: grid;
+  /* Left col can shrink down to 260px; right col keeps 336–520px */
+  grid-template-columns: minmax(260px, 1fr) minmax(336px, 520px);
+  align-items: start;
+  column-gap: clamp(16px, 3.5vw, 48px);
+}
+.section-radiology {
+  /* Image scales down, never overflows */
+}
+.section-radiology .monitors-img {
+  width: min(100%, 720px); /* cap similar to screenshot */
+  height: auto;
+  display: block;
+}
+.section-radiology {
+  /* Right copy per XD */
 }
 .section-radiology .radiology-copy {
   max-width: 336px;
@@ -12802,27 +12806,23 @@ img {
   font-size: 18px;
   line-height: 24px;
   color: #0A0A0A;
-  margin-left: auto;
+  margin: 0;
 }
 .section-radiology {
-  /* Monitors image */
+  /* CTA block width follows the copy width; buttons are 50% of it */
 }
-.section-radiology .monitors-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+.section-radiology .cta-stack {
+  max-width: 336px;
 }
-.section-radiology {
-  /* Buttons */
-}
-.section-radiology .btn {
-  height: 48px;
-  min-width: 190px;
-  padding: 0 18px;
+.section-radiology .cta-stack .btn {
+  width: 50%; /* << requirement */
+  min-width: 190px; /* XD width floor */
+  height: 48px; /* 48px */
   font-family: "LG EI Text", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
+  padding-inline: 18px;
 }
 .section-radiology .btn-white-pill {
   background: #FFFFFF;
@@ -12832,55 +12832,82 @@ img {
   border: 0;
 }
 .section-radiology .btn-red-pill {
-  background: #E21E26;
+  background: #E21E26; /* #E21E26 */
   color: #0A0A0A;
   border-radius: 106px;
   border: 0;
-  box-shadow: none;
-}
-.section-radiology .btn-label {
-  white-space: nowrap;
 }
 .section-radiology {
-  /* Shadow band area with floating button on the right */
+  /* Watermark from earlier (unchanged) */
+}
+.section-radiology .radiology-watermark {
+  position: absolute;
+  left: -60%;
+  right: 0;
+  top: 25%;
+  bottom: clamp(-18px, -1.8vw, -10px);
+  text-align: left;
+  font-family: "LG EI Headline Semibold", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: clamp(110px, 14.6vw, 281px);
+  line-height: clamp(150px, 19.5vw, 374px);
+  letter-spacing: 0;
+  color: rgba(0, 0, 0, 0.03);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+.section-radiology {
+  /* Shadow band and right-aligned action preserved */
 }
 .section-radiology .shadow-band-wrap .shadow-band {
-  width: min(1224px, 92%);
+  position: relative;
+  width: min(1224px, 100%);
   height: auto;
+  top: -70px;
+  z-index: 1;
 }
 .section-radiology .shadow-band-wrap .btn-all-products {
   right: max(0px, (100% - min(1224px, 92%)) / 2);
-  top: -14px;
+  top: -41px;
   transform: translateY(-10%);
   background: #FFFFFF;
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.0509803922);
   border-radius: 106px;
   color: #0A0A0A;
   padding-inline: 20px;
+  z-index: 6;
 }
 
-/* ====== Responsive refinements ====== */
-@media (max-width: 1199.98px) {
-  .section-radiology .radiology-copy {
-    margin-left: 0;
-  }
-  .section-radiology .shadow-band-wrap .btn-all-products {
-    right: 8px;
-  }
+/* Icon sizing + exact gap from XD */
+.icon-20 {
+  width: 20px;
+  height: 20px;
 }
-@media (max-width: 991.98px) {
-  .section-radiology .radiology-watermark {
-    display: none;
+
+.icon-15 {
+  width: 15px;
+  height: 15px;
+}
+
+.me-icon {
+  margin-right: 5.74px;
+} /* keep XD gap */
+/* Small screens: hide shadow, place the button under red CTA, and keep two columns tight */
+@media (max-width: 992px) {
+  .section-radiology .btn-all-products-inline {
+    display: inline-flex !important;
   }
-  .section-radiology .radiology-copy {
-    max-width: 100%;
+  .section-radiology { /* show inline button */ }
+}
+/* Smallest devices: keep two columns but allow right column to compress a bit */
+@media (max-width: 420px) {
+  .section-radiology .radiology-grid {
+    grid-template-columns: minmax(220px, 1fr) minmax(280px, 1fr);
+    column-gap: 16px;
   }
-  .section-radiology .shadow-band-wrap .btn-all-products {
-    position: relative;
-    display: inline-flex;
-    top: 0;
-    transform: none;
-    margin: 12px 0 0 auto;
+  .section-radiology .cta-stack .btn {
+    width: 60%; /* give a touch more width so labels don't squeeze */
   }
 }
 /* Optional section background to match the screenshot */

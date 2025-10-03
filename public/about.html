@@ -267,42 +267,35 @@
     </div>
 </section>
 
-<!-- Requires Bootstrap 5 CSS already loaded -->
+<!-- LG Monitors -->
 <section class="section-radiology position-relative py-5 py-lg-7">
     <div class="container position-relative">
 
-        <!-- Watermark / background word -->
-        <div class="radiology-watermark d-none d-lg-block" aria-hidden="true">
-            Monitory Radiologiczne
-        </div>
+        <!-- Two-column grid that does NOT stack -->
+        <div class="radiology-grid">
+            <!-- Left: image -->
+            <figure class="radiology-visual mb-0">
+                <img src="img/flow7/lg-monitors.png"
+                     alt="LG diagnostic monitors"
+                     class="monitors-img" />
+                <figcaption class="radiology-watermark" aria-hidden="true">
+                    Monitory Radiologiczne
+                </figcaption>
+            </figure>
 
-        <div class="row align-items-center gy-4">
-            <!-- Left: monitors image -->
-            <div class="col-12 col-lg-6">
-                <figure class="mb-0 text-center text-lg-start">
-                    <img src="img/flow7/lg-monitors.png"
-                         alt="LG diagnostic monitors"
-                         class="img-fluid monitors-img"/>
-                </figure>
-            </div>
-
-            <!-- Right: copy + buttons stack -->
-            <div class="col-12 col-lg-6">
-                <p class="radiology-copy mb-3 mb-lg-4">
+            <!-- Right: text + CTAs -->
+            <div class="radiology-side mt-lg-5 ms-lg-5">
+                <p class="radiology-copy mb-3 mt-5">
                     LG Diagnostic Monitors allows medical professionals to easily distinguish even delicate details.
                 </p>
 
-                <div class="d-flex flex-column gap-4">
-                    <!-- White button: Zobacz wideo -->
-                    <a href="#video"
-                       class="btn btn-white-pill d-inline-flex align-items-center justify-content-center">
+                <div class="cta-stack">
+                    <a href="#video" class="btn btn-white-pill d-inline-flex align-items-center justify-content-center mb-3">
                         <img src="img/flow7/icons/play-circle-outline.svg" alt="" class="icon-20 me-icon" />
                         <span class="btn-label">Zobacz wideo</span>
                     </a>
 
-                    <!-- Red button: Pobierz katalog -->
-                    <a href="#catalog"
-                       class="btn btn-red-pill d-inline-flex align-items-center justify-content-center">
+                    <a href="#catalog" class="btn btn-red-pill d-inline-flex align-items-center justify-content-center">
                         <img src="img/flow7/icons/feather-download.svg" alt="" class="icon-15 me-icon" />
                         <span class="btn-label">Pobierz katalog</span>
                     </a>
@@ -310,17 +303,13 @@
             </div>
         </div>
 
-        <!-- Shadow band + 'Wszystkie produkty' button -->
+        <!-- Shadow band + button -->
         <div class="shadow-band-wrap position-relative mt-5 mt-lg-6">
-            <img src="img/flow7/lg-monitors-shadow.png"
-                 alt=""
-                 class="shadow-band mx-auto d-block" />
-            <a href="#all-products"
-               class="btn btn-white-pill btn-all-products position-absolute">
+            <img src="img/flow7/lg-monitors-shadow.png" alt="" class="shadow-band mx-auto d-block" />
+            <a href="#all-products" class="btn btn-white-pill btn-all-products position-absolute">
                 Wszystkie produkty
             </a>
         </div>
-
     </div>
 </section>
 
