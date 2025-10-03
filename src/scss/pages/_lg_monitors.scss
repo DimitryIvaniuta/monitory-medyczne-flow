@@ -1,0 +1,139 @@
+@use "abstracts/variables" as vars;
+
+/* ====== Tokens from XD ====== */
+$color-copy:          #0A0A0A;          // body text
+$color-watermark:     #000000;          // big word with 3% opacity
+$color-white:         #FFFFFF;
+$color-red:           #E21E26;
+
+$font-headline:       "LG EI Headline Semibold", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$font-body:           "LG EI Text", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+/* Measurements from XD */
+$watermark-font:      281px;            // 281/374 from XD
+$watermark-line:      374px;
+$copy-size:           18px;             // 18/24 from XD
+$copy-line:           24px;
+
+$btn-height:          48px;             // both buttons
+$btn-white-radius:    24px;             // XD
+$btn-red-radius:      106px;            // XD
+$btn-shadow:          0px 5px 8px #0000000D;
+
+$icon-gap:            5.74px;           // ~6px gap from XD (kept exact)
+
+/* Helper icon sizes */
+.icon-20 { width: 20px; height: 20px; }
+.icon-15 { width: 15px; height: 15px; }
+.me-icon { margin-right: $icon-gap; }
+
+/* ====== Section styling ====== */
+.section-radiology {
+  background: vars.$bg-cream;
+
+  /* Watermark word behind content */
+  .radiology-watermark {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: clamp(-24px, -2vw, -8px);   // slight bleed like in XD
+    text-align: left;
+    font-family: $font-headline;
+    font-weight: 600;                   // Semibold
+    /* Responsive scaling: match 281px at 1920, scale down gracefully */
+    font-size: clamp(110px, 14.6vw, $watermark-font);
+    line-height: clamp(150px, 19.5vw, $watermark-line);
+    letter-spacing: 0;
+    color: rgba($color-watermark, 0.03);
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Right copy block */
+  .radiology-copy {
+    max-width: 336px;                   // from XD
+    font-family: $font-body;
+    font-weight: 400;
+    font-size: $copy-size;
+    line-height: $copy-line;
+    color: $color-copy;
+    margin-left: auto;                  // keep tight to right column
+  }
+
+  /* Monitors image */
+  .monitors-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Buttons */
+  .btn {
+    height: $btn-height;
+    min-width: 190px;                   // XD width
+    padding: 0 18px;                    // visual balance with icons+label
+    font-family: $font-body;
+    font-weight: 600;                   // XD says 600
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .btn-white-pill {
+    background: $color-white;
+    color: $color-copy;
+    border-radius: $btn-white-radius;
+    box-shadow: $btn-shadow;
+    border: 0;
+  }
+
+  .btn-red-pill {
+    background: $color-red;
+    color: #0A0A0A;                     // XD uses dark label on red
+    border-radius: $btn-red-radius;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .btn-label { white-space: nowrap; }
+
+  /* Shadow band area with floating button on the right */
+  .shadow-band-wrap {
+    .shadow-band {
+      width: min(1224px, 92%);          // XD width, centered, never full-bleed
+      height: auto;
+    }
+
+    .btn-all-products {
+      right: max(0px, calc((100% - min(1224px, 92%)) / 2)); // align to the right edge of the shadow band
+      top: -14px;                           // slight “rise” above the band, tweak as needed
+      transform: translateY(-10%);          // subtle optical lift
+      background: $color-white;
+      box-shadow: $btn-shadow;
+      border-radius: 106px;                 // XD
+      color: $color-copy;
+      padding-inline: 20px;
+    }
+  }
+}
+
+/* ====== Responsive refinements ====== */
+@media (max-width: 1199.98px) {
+  .section-radiology {
+    .radiology-copy { margin-left: 0; }
+    .shadow-band-wrap .btn-all-products { right: 8px; }
+  }
+}
+@media (max-width: 991.98px) {
+  .section-radiology {
+    .radiology-watermark { display: none; } // hide watermark on smaller devices to avoid clutter
+    .radiology-copy { max-width: 100%; }
+    .shadow-band-wrap .btn-all-products {
+      position: relative;
+      display: inline-flex;
+      top: 0; transform: none;
+      margin: 12px 0 0 auto;               // right-align under the band
+    }
+  }
+}

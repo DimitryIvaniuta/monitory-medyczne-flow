@@ -12752,6 +12752,137 @@ img {
   height: auto;
 }
 
+/* ====== Tokens from XD ====== */
+/* Measurements from XD */
+/* Helper icon sizes */
+.icon-20 {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-15 {
+  width: 15px;
+  height: 15px;
+}
+
+.me-icon {
+  margin-right: 5.74px;
+}
+
+/* ====== Section styling ====== */
+.section-radiology {
+  background: #F0ECE4;
+  /* Watermark word behind content */
+}
+.section-radiology .radiology-watermark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(-24px, -2vw, -8px);
+  text-align: left;
+  font-family: "LG EI Headline Semibold", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  /* Responsive scaling: match 281px at 1920, scale down gracefully */
+  font-size: clamp(110px, 14.6vw, 281px);
+  line-height: clamp(150px, 19.5vw, 374px);
+  letter-spacing: 0;
+  color: rgba(0, 0, 0, 0.03);
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.section-radiology {
+  /* Right copy block */
+}
+.section-radiology .radiology-copy {
+  max-width: 336px;
+  font-family: "LG EI Text", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #0A0A0A;
+  margin-left: auto;
+}
+.section-radiology {
+  /* Monitors image */
+}
+.section-radiology .monitors-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.section-radiology {
+  /* Buttons */
+}
+.section-radiology .btn {
+  height: 48px;
+  min-width: 190px;
+  padding: 0 18px;
+  font-family: "LG EI Text", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+.section-radiology .btn-white-pill {
+  background: #FFFFFF;
+  color: #0A0A0A;
+  border-radius: 24px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.0509803922);
+  border: 0;
+}
+.section-radiology .btn-red-pill {
+  background: #E21E26;
+  color: #0A0A0A;
+  border-radius: 106px;
+  border: 0;
+  box-shadow: none;
+}
+.section-radiology .btn-label {
+  white-space: nowrap;
+}
+.section-radiology {
+  /* Shadow band area with floating button on the right */
+}
+.section-radiology .shadow-band-wrap .shadow-band {
+  width: min(1224px, 92%);
+  height: auto;
+}
+.section-radiology .shadow-band-wrap .btn-all-products {
+  right: max(0px, (100% - min(1224px, 92%)) / 2);
+  top: -14px;
+  transform: translateY(-10%);
+  background: #FFFFFF;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.0509803922);
+  border-radius: 106px;
+  color: #0A0A0A;
+  padding-inline: 20px;
+}
+
+/* ====== Responsive refinements ====== */
+@media (max-width: 1199.98px) {
+  .section-radiology .radiology-copy {
+    margin-left: 0;
+  }
+  .section-radiology .shadow-band-wrap .btn-all-products {
+    right: 8px;
+  }
+}
+@media (max-width: 991.98px) {
+  .section-radiology .radiology-watermark {
+    display: none;
+  }
+  .section-radiology .radiology-copy {
+    max-width: 100%;
+  }
+  .section-radiology .shadow-band-wrap .btn-all-products {
+    position: relative;
+    display: inline-flex;
+    top: 0;
+    transform: none;
+    margin: 12px 0 0 auto;
+  }
+}
 /* Optional section background to match the screenshot */
 .offer-hero {
   background: #F0ECE4;
