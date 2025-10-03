@@ -133,6 +133,11 @@ $icon-gap:            5.74px;           // ~6px gap from XD (kept exact)
   }
 }
 
+.radiology-side {
+  /* As the screen narrows, margin shrinks from 48px down to ~8px */
+  margin-top: clamp(8px, 2.8vw, 48px);
+}
+
 /* Icon sizing + exact gap from XD */
 .icon-20 { width: 20px; height: 20px; }
 .icon-15 { width: 15px; height: 15px; }
@@ -141,7 +146,7 @@ $icon-gap:            5.74px;           // ~6px gap from XD (kept exact)
 /* Small screens: hide shadow, place the button under red CTA, and keep two columns tight */
 @media (max-width: 992px) {
     .section-radiology {
-        //.shadow-band-wrap .shadow-band { display: none; }
+        .shadow-band-wrap .shadow-band { display: none; }
         //.shadow-band-wrap .btn-all-products { display: none; } /* hide floating button */
         .btn-all-products-inline { display: inline-flex !important; } /* show inline button */
     }
@@ -149,6 +154,7 @@ $icon-gap:            5.74px;           // ~6px gap from XD (kept exact)
 /* Smallest devices: keep two columns but allow right column to compress a bit */
 @media (max-width: 420px) {
   .section-radiology {
+    .shadow-band-wrap .shadow-band { display: none; }
     .radiology-grid {
       grid-template-columns: minmax(220px, 1fr) minmax(280px, 1fr);
       column-gap: 16px;
@@ -156,5 +162,9 @@ $icon-gap:            5.74px;           // ~6px gap from XD (kept exact)
     .cta-stack .btn {
       width: 60%;    /* give a touch more width so labels don't squeeze */
     }
+  }
+  .radiology-side {
+    /* As the screen narrows, margin shrinks from 48px down to ~8px */
+    margin-top: clamp(4px, 2vw, 14px);
   }
 }
